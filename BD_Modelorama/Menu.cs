@@ -21,5 +21,12 @@ namespace BD_Modelorama
         {
 
         }
+
+        private void EMPLEADOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados x = new Empleados();
+            this.Hide();
+            x.Show();
+        }
     }
 }

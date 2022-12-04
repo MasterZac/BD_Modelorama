@@ -33,7 +33,7 @@
             this.BtnRegresar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.eMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROVEEDORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,23 +84,25 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Historic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eMPLEADOSToolStripMenuItem,
+            this.EMPLEADOSToolStripMenuItem,
             this.cLIENTESToolStripMenuItem,
             this.pROVEEDORToolStripMenuItem,
             this.pRODUCTOSToolStripMenuItem,
             this.vENTASToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 67);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(582, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(582, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // eMPLEADOSToolStripMenuItem
+            // EMPLEADOSToolStripMenuItem
             // 
-            this.eMPLEADOSToolStripMenuItem.Name = "eMPLEADOSToolStripMenuItem";
-            this.eMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.eMPLEADOSToolStripMenuItem.Text = "EMPLEADOS";
+            this.EMPLEADOSToolStripMenuItem.Name = "EMPLEADOSToolStripMenuItem";
+            this.EMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.EMPLEADOSToolStripMenuItem.Text = "EMPLEADOS";
+            this.EMPLEADOSToolStripMenuItem.Click += new System.EventHandler(this.EMPLEADOSToolStripMenuItem_Click);
             // 
             // cLIENTESToolStripMenuItem
             // 
@@ -126,7 +128,7 @@
             // cOMPRASToolStripMenuItem
             // 
             this.cOMPRASToolStripMenuItem.Name = "cOMPRASToolStripMenuItem";
-            this.cOMPRASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cOMPRASToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.cOMPRASToolStripMenuItem.Text = "COMPRAS";
             // 
             // registroDeProductosToolStripMenuItem
@@ -150,7 +152,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -171,7 +173,7 @@
         private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem eMPLEADOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EMPLEADOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pROVEEDORToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTOSToolStripMenuItem;

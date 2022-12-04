@@ -19,6 +19,7 @@ namespace BD_Modelorama
         MySqlDataReader rd;
         MySqlDataAdapter da;
         DataTable dt;
+
         public Empleados()
         {
             InitializeComponent();
@@ -35,23 +36,39 @@ namespace BD_Modelorama
             cnn.Close();
         }
 
+        public string empleado { get; set; }
 
         private void Empleados_Load(object sender, EventArgs e)
         {
-
+            LabelNombreEmpleado.Text = String.Format("{0}", empleado);
+            BtnRegistrar.Enabled = false;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
+            BtnConsultar.Enabled = false;
         }
 
         public void Limpiar()
         {
             TxtCurp.Clear();
             TxtNombre.Clear();
+            CmbPuesto.Text = "";
             TxtEdad.Clear();
             TxtContraseña.Clear();
+        }
+
+        public void Validar()
+        {
+            var vr = !string.IsNullOrEmpty(TxtCurp.Text) &&
+                !string.IsNullOrEmpty(TxtEdad.Text) &&
+                !string.IsNullOrEmpty(TxtNombre.Text) &&
+                !string.IsNullOrEmpty(TxtContraseña.Text);
+            BtnRegistrar.Enabled = vr;
         }
 
         private void BtnTerminar_Click(object sender, EventArgs e)
         {
             Menu x = new Menu();
+            x.NombreTrabajador = LabelNombreEmpleado.Text;
             this.Hide();
             x.Show();
         }
@@ -77,6 +94,10 @@ namespace BD_Modelorama
                     MySqlParameter pedad = new MySqlParameter("pedad", MySqlDbType.Int32);
                     pedad.Value = TxtEdad.Text.Trim();
                     cmd.Parameters.Add(pedad);
+
+                    MySqlParameter ppuesto = new MySqlParameter("ppuesto", MySqlDbType.VarChar, 25);
+                    ppuesto.Value = CmbPuesto.Text;
+                    cmd.Parameters.Add(ppuesto);
 
                     MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
                     pnombre.Value = TxtNombre.Text;
@@ -142,7 +163,8 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                cmd = new MySqlCommand("EditarEmpleado", cnn);
+                cmd = new MySqlCommand("EditaEmpleado", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 MySqlParameter pcurp = new MySqlParameter("pcurp", MySqlDbType.VarChar, 20);
                 pcurp.Value = TxtCurp.Text.ToUpper().Trim();
@@ -151,6 +173,10 @@ namespace BD_Modelorama
                 MySqlParameter pedad = new MySqlParameter("pedad", MySqlDbType.Int32);
                 pedad.Value = TxtEdad.Text.Trim();
                 cmd.Parameters.Add(pedad);
+
+                MySqlParameter ppuesto = new MySqlParameter("ppuesto", MySqlDbType.VarChar, 25);
+                ppuesto.Value = CmbPuesto.Text;
+                cmd.Parameters.Add(ppuesto);
 
                 MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
                 pnombre.Value = TxtNombre.Text;
@@ -201,6 +227,12 @@ namespace BD_Modelorama
             }
         }
 
+        public void ValidarClave()
+        {
+            var vr = !string.IsNullOrEmpty(TxtCurp.Text);
+            BtnConsultar.Enabled = vr;
+        }
+
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
             bool existe_empleado = true;
@@ -220,13 +252,17 @@ namespace BD_Modelorama
                 {
                     existe_empleado = true;
                     TxtEdad.Text = rd[1].ToString();
-                    TxtNombre.Text = rd[2].ToString();
-                    TxtContraseña.Text = rd[3].ToString();
+                    CmbPuesto.Text = rd[2].ToString();
+                    TxtNombre.Text = rd[3].ToString();
+                    TxtContraseña.Text = rd[4].ToString();
+                    BtnRegistrar.Enabled = false;
+                    BtnEliminar.Enabled = true;
+                    BtnEditar.Enabled = true;
                 }
                 else
                 {
                     existe_empleado = false;
-                    MessageBox.Show("No existe ese empleado");
+                    MessageBox.Show("No hay registros de ese empleado");
                 }
             }
             catch (Exception ex)
@@ -267,8 +303,73 @@ namespace BD_Modelorama
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            
+            BtnEliminar.Enabled = false;
+            BtnEditar.Enabled = false;
             Limpiar();
             RefrescarDgv();
+        }
+
+        private void TxtCurp_TextChanged(object sender, EventArgs e)
+        {
+            Validar();
+            ValidarClave();
+
+        }
+
+        private void TxtEdad_TextChanged(object sender, EventArgs e)
+        {
+            Validar();
+        }
+
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
+        {
+            Validar();
+        }
+
+        private void TxtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            Validar();
+        }
+
+        private void TxtCurp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo letras ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

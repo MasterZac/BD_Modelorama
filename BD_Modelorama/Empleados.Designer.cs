@@ -44,7 +44,10 @@
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnTerminar = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CmbPuesto = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LabelNombreEmpleado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,17 +65,23 @@
             // 
             this.TxtCurp.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCurp.Location = new System.Drawing.Point(131, 69);
+            this.TxtCurp.MaxLength = 15;
             this.TxtCurp.Name = "TxtCurp";
             this.TxtCurp.Size = new System.Drawing.Size(143, 27);
             this.TxtCurp.TabIndex = 1;
+            this.TxtCurp.TextChanged += new System.EventHandler(this.TxtCurp_TextChanged);
+            this.TxtCurp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCurp_KeyPress);
             // 
             // TxtEdad
             // 
             this.TxtEdad.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEdad.Location = new System.Drawing.Point(131, 117);
+            this.TxtEdad.MaxLength = 4;
             this.TxtEdad.Name = "TxtEdad";
             this.TxtEdad.Size = new System.Drawing.Size(143, 27);
             this.TxtEdad.TabIndex = 2;
+            this.TxtEdad.TextChanged += new System.EventHandler(this.TxtEdad_TextChanged);
+            this.TxtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEdad_KeyPress);
             // 
             // label2
             // 
@@ -88,7 +97,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(52, 158);
+            this.label3.Location = new System.Drawing.Point(52, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 4;
@@ -97,10 +106,13 @@
             // TxtNombre
             // 
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.Location = new System.Drawing.Point(131, 158);
+            this.TxtNombre.Location = new System.Drawing.Point(131, 202);
+            this.TxtNombre.MaxLength = 35;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(143, 27);
             this.TxtNombre.TabIndex = 5;
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // linkLabel1
             // 
@@ -118,7 +130,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 207);
+            this.label4.Location = new System.Drawing.Point(29, 251);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 7;
@@ -127,10 +139,13 @@
             // TxtContraseña
             // 
             this.TxtContraseña.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraseña.Location = new System.Drawing.Point(131, 207);
+            this.TxtContraseña.Location = new System.Drawing.Point(131, 251);
+            this.TxtContraseña.MaxLength = 10;
             this.TxtContraseña.Name = "TxtContraseña";
             this.TxtContraseña.Size = new System.Drawing.Size(143, 27);
             this.TxtContraseña.TabIndex = 8;
+            this.TxtContraseña.TextChanged += new System.EventHandler(this.TxtContraseña_TextChanged);
+            this.TxtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtContraseña_KeyPress);
             // 
             // DGVEmpleados
             // 
@@ -207,20 +222,55 @@
             this.BtnTerminar.UseVisualStyleBackColor = true;
             this.BtnTerminar.Click += new System.EventHandler(this.BtnTerminar_Click);
             // 
-            // statusStrip1
+            // label5
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 475);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(833, 22);
-            this.statusStrip1.TabIndex = 17;
-            this.statusStrip1.Text = "statusStrip1";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(63, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 18);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Puesto";
+            // 
+            // CmbPuesto
+            // 
+            this.CmbPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbPuesto.FormattingEnabled = true;
+            this.CmbPuesto.Items.AddRange(new object[] {
+            "Administrador ",
+            "Vendedor"});
+            this.CmbPuesto.Location = new System.Drawing.Point(131, 165);
+            this.CmbPuesto.Name = "CmbPuesto";
+            this.CmbPuesto.Size = new System.Drawing.Size(143, 24);
+            this.CmbPuesto.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(551, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Empleado:";
+            // 
+            // LabelNombreEmpleado
+            // 
+            this.LabelNombreEmpleado.AutoSize = true;
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(614, 9);
+            this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
+            this.LabelNombreEmpleado.Size = new System.Drawing.Size(35, 13);
+            this.LabelNombreEmpleado.TabIndex = 21;
+            this.LabelNombreEmpleado.Text = "label7";
             // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 497);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.LabelNombreEmpleado);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CmbPuesto);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnTerminar);
             this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.BtnNuevo);
@@ -266,6 +316,9 @@
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.Button BtnTerminar;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CmbPuesto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LabelNombreEmpleado;
     }
 }

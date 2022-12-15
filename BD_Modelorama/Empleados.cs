@@ -110,6 +110,7 @@ namespace BD_Modelorama
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Empleado registrado");
                     Limpiar();
+                   
                 }
                 catch (Exception ex)
                 {

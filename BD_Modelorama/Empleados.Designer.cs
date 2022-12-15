@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtCurp = new System.Windows.Forms.TextBox();
             this.TxtEdad = new System.Windows.Forms.TextBox();
@@ -46,8 +47,13 @@
             this.BtnTerminar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbPuesto = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.LabelNombreEmpleado = new System.Windows.Forms.Label();
+            this.TxtEstatus = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +61,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 69);
+            this.label1.Location = new System.Drawing.Point(74, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 0;
@@ -64,8 +70,8 @@
             // TxtCurp
             // 
             this.TxtCurp.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCurp.Location = new System.Drawing.Point(131, 69);
-            this.TxtCurp.MaxLength = 15;
+            this.TxtCurp.Location = new System.Drawing.Point(131, 84);
+            this.TxtCurp.MaxLength = 10;
             this.TxtCurp.Name = "TxtCurp";
             this.TxtCurp.Size = new System.Drawing.Size(143, 27);
             this.TxtCurp.TabIndex = 1;
@@ -75,7 +81,7 @@
             // TxtEdad
             // 
             this.TxtEdad.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEdad.Location = new System.Drawing.Point(131, 117);
+            this.TxtEdad.Location = new System.Drawing.Point(131, 132);
             this.TxtEdad.MaxLength = 4;
             this.TxtEdad.Name = "TxtEdad";
             this.TxtEdad.Size = new System.Drawing.Size(143, 27);
@@ -87,7 +93,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 117);
+            this.label2.Location = new System.Drawing.Point(72, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 20);
             this.label2.TabIndex = 3;
@@ -97,7 +103,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(52, 202);
+            this.label3.Location = new System.Drawing.Point(52, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 4;
@@ -106,7 +112,7 @@
             // TxtNombre
             // 
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.Location = new System.Drawing.Point(131, 202);
+            this.TxtNombre.Location = new System.Drawing.Point(131, 217);
             this.TxtNombre.MaxLength = 35;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(143, 27);
@@ -117,20 +123,20 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(74, 18);
+            this.linkLabel1.Location = new System.Drawing.Point(82, 49);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(415, 18);
+            this.linkLabel1.Size = new System.Drawing.Size(301, 18);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "INGRESA LOS DATOS TODOS LOS DATOS REQUERIDOS";
+            this.linkLabel1.Text = "INGRESA LOS  DATOS REQUERIDOS";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 251);
+            this.label4.Location = new System.Drawing.Point(29, 250);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 7;
@@ -139,7 +145,7 @@
             // TxtContraseña
             // 
             this.TxtContraseña.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraseña.Location = new System.Drawing.Point(131, 251);
+            this.TxtContraseña.Location = new System.Drawing.Point(131, 250);
             this.TxtContraseña.MaxLength = 10;
             this.TxtContraseña.Name = "TxtContraseña";
             this.TxtContraseña.Size = new System.Drawing.Size(143, 27);
@@ -149,9 +155,13 @@
             // 
             // DGVEmpleados
             // 
+            this.DGVEmpleados.AllowUserToAddRows = false;
+            this.DGVEmpleados.AllowUserToDeleteRows = false;
+            this.DGVEmpleados.AllowUserToResizeColumns = false;
+            this.DGVEmpleados.AllowUserToResizeRows = false;
             this.DGVEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DGVEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVEmpleados.Location = new System.Drawing.Point(31, 333);
+            this.DGVEmpleados.Location = new System.Drawing.Point(33, 357);
             this.DGVEmpleados.Name = "DGVEmpleados";
             this.DGVEmpleados.Size = new System.Drawing.Size(699, 111);
             this.DGVEmpleados.TabIndex = 9;
@@ -159,9 +169,9 @@
             // BtnRegistrar
             // 
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegistrar.Location = new System.Drawing.Point(376, 60);
+            this.BtnRegistrar.Location = new System.Drawing.Point(360, 129);
             this.BtnRegistrar.Name = "BtnRegistrar";
-            this.BtnRegistrar.Size = new System.Drawing.Size(99, 42);
+            this.BtnRegistrar.Size = new System.Drawing.Size(104, 42);
             this.BtnRegistrar.TabIndex = 10;
             this.BtnRegistrar.Text = "Registrar";
             this.BtnRegistrar.UseVisualStyleBackColor = true;
@@ -170,20 +180,20 @@
             // BtnEliminar
             // 
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.Location = new System.Drawing.Point(376, 107);
+            this.BtnEliminar.Location = new System.Drawing.Point(360, 176);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(99, 43);
+            this.BtnEliminar.Size = new System.Drawing.Size(104, 68);
             this.BtnEliminar.TabIndex = 11;
-            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.Text = "Habilitar / Deshabilitar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnEditar
             // 
             this.BtnEditar.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditar.Location = new System.Drawing.Point(376, 156);
+            this.BtnEditar.Location = new System.Drawing.Point(360, 250);
             this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(99, 42);
+            this.BtnEditar.Size = new System.Drawing.Size(104, 42);
             this.BtnEditar.TabIndex = 12;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
@@ -192,9 +202,9 @@
             // BtnNuevo
             // 
             this.BtnNuevo.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevo.Location = new System.Drawing.Point(376, 204);
+            this.BtnNuevo.Location = new System.Drawing.Point(360, 298);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(99, 42);
+            this.BtnNuevo.Size = new System.Drawing.Size(104, 42);
             this.BtnNuevo.TabIndex = 13;
             this.BtnNuevo.Text = "Nuevo";
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -203,7 +213,7 @@
             // BtnConsultar
             // 
             this.BtnConsultar.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsultar.Location = new System.Drawing.Point(31, 294);
+            this.BtnConsultar.Location = new System.Drawing.Point(33, 318);
             this.BtnConsultar.Name = "BtnConsultar";
             this.BtnConsultar.Size = new System.Drawing.Size(110, 33);
             this.BtnConsultar.TabIndex = 14;
@@ -214,7 +224,7 @@
             // BtnTerminar
             // 
             this.BtnTerminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTerminar.Location = new System.Drawing.Point(746, 12);
+            this.BtnTerminar.Location = new System.Drawing.Point(667, 40);
             this.BtnTerminar.Name = "BtnTerminar";
             this.BtnTerminar.Size = new System.Drawing.Size(75, 37);
             this.BtnTerminar.TabIndex = 16;
@@ -226,7 +236,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(63, 168);
+            this.label5.Location = new System.Drawing.Point(63, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 18);
             this.label5.TabIndex = 18;
@@ -237,38 +247,92 @@
             this.CmbPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbPuesto.FormattingEnabled = true;
             this.CmbPuesto.Items.AddRange(new object[] {
+            "SuperAdmin",
             "Administrador ",
             "Vendedor"});
-            this.CmbPuesto.Location = new System.Drawing.Point(131, 165);
+            this.CmbPuesto.Location = new System.Drawing.Point(131, 180);
             this.CmbPuesto.Name = "CmbPuesto";
             this.CmbPuesto.Size = new System.Drawing.Size(143, 24);
             this.CmbPuesto.TabIndex = 19;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(551, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Empleado:";
-            // 
             // LabelNombreEmpleado
             // 
             this.LabelNombreEmpleado.AutoSize = true;
-            this.LabelNombreEmpleado.Location = new System.Drawing.Point(614, 9);
+            this.LabelNombreEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(563, 9);
             this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
             this.LabelNombreEmpleado.Size = new System.Drawing.Size(35, 13);
             this.LabelNombreEmpleado.TabIndex = 21;
             this.LabelNombreEmpleado.Text = "label7";
             // 
+            // TxtEstatus
+            // 
+            this.TxtEstatus.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEstatus.Location = new System.Drawing.Point(360, 84);
+            this.TxtEstatus.MaxLength = 10;
+            this.TxtEstatus.Name = "TxtEstatus";
+            this.TxtEstatus.ReadOnly = true;
+            this.TxtEstatus.Size = new System.Drawing.Size(104, 27);
+            this.TxtEstatus.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(290, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 20);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Estatus:";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(445, 7);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(112, 16);
+            this.linkLabel2.TabIndex = 24;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Empleado activo:";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.Location = new System.Drawing.Point(145, 7);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(88, 16);
+            this.linkLabel3.TabIndex = 25;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Fecha / Hora:";
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha.Location = new System.Drawing.Point(239, 9);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(35, 13);
+            this.labelFecha.TabIndex = 26;
+            this.labelFecha.Text = "label6";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 497);
+            this.ClientSize = new System.Drawing.Size(754, 497);
+            this.Controls.Add(this.labelFecha);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.TxtEstatus);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.LabelNombreEmpleado);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.CmbPuesto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnTerminar);
@@ -318,7 +382,12 @@
         private System.Windows.Forms.Button BtnTerminar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CmbPuesto;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LabelNombreEmpleado;
+        private System.Windows.Forms.TextBox TxtEstatus;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label labelFecha;
+        private System.Windows.Forms.Timer timer;
     }
 }

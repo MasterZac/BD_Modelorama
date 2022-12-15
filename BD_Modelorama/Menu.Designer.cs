@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.BtnRegresar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,11 +41,12 @@
             this.cOMPRASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VENTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.LabelNombreEmpleado = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.LabelPuesto = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +54,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.labelFecha);
             this.panel1.Controls.Add(this.BtnExit);
             this.panel1.Controls.Add(this.BtnRegresar);
             this.panel1.Controls.Add(this.label1);
@@ -59,6 +63,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(480, 12);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(72, 40);
+            this.BtnExit.TabIndex = 3;
+            this.BtnExit.Text = "Exit";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // BtnRegresar
             // 
@@ -143,66 +158,71 @@
             this.VENTASToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.VENTASToolStripMenuItem.Text = "VENTAS";
             // 
-            // BtnExit
-            // 
-            this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.Location = new System.Drawing.Point(480, 12);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(72, 40);
-            this.BtnExit.TabIndex = 3;
-            this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = true;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 234);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Empleado:";
-            // 
             // LabelNombreEmpleado
             // 
             this.LabelNombreEmpleado.AutoSize = true;
             this.LabelNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNombreEmpleado.Location = new System.Drawing.Point(87, 234);
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(115, 234);
             this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
             this.LabelNombreEmpleado.Size = new System.Drawing.Size(119, 16);
             this.LabelNombreEmpleado.TabIndex = 5;
             this.LabelNombreEmpleado.Text = "NombreEmpleado";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(241, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Puesto:";
-            // 
             // LabelPuesto
             // 
             this.LabelPuesto.AutoSize = true;
             this.LabelPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPuesto.Location = new System.Drawing.Point(290, 234);
+            this.LabelPuesto.Location = new System.Drawing.Point(332, 234);
             this.LabelPuesto.Name = "LabelPuesto";
             this.LabelPuesto.Size = new System.Drawing.Size(44, 16);
             this.LabelPuesto.TabIndex = 7;
             this.LabelPuesto.Text = "label4";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(-3, 231);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(112, 16);
+            this.linkLabel2.TabIndex = 25;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Empleado activo:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(274, 234);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(52, 16);
+            this.linkLabel1.TabIndex = 26;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Puesto:";
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Location = new System.Drawing.Point(186, 54);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(35, 13);
+            this.labelFecha.TabIndex = 27;
+            this.labelFecha.Text = "label2";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 256);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelPuesto);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.LabelNombreEmpleado);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -234,10 +254,12 @@
         private System.Windows.Forms.ToolStripMenuItem registroDeProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem VENTASToolStripMenuItem;
         private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LabelNombreEmpleado;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LabelPuesto;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label labelFecha;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

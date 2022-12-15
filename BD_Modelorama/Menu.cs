@@ -100,5 +100,10 @@ namespace BD_Modelorama
             this.Hide();
             x.Show();
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            labelFecha.Text = Convert.ToString(DateTime.Now.ToString("G"));
+        }
     }
 }

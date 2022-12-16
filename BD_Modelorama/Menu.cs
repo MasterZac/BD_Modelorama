@@ -105,5 +105,13 @@ namespace BD_Modelorama
         {
             labelFecha.Text = Convert.ToString(DateTime.Now.ToString("G"));
         }
+
+        private void CLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clientes x = new Clientes();
+            x.nombre = LabelNombreEmpleado.Text;
+            this.Hide();
+            x.Show();
+        }
     }
 }

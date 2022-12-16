@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelFecha = new System.Windows.Forms.Label();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnRegresar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.LabelPuesto = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.labelFecha = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -63,6 +63,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Location = new System.Drawing.Point(186, 54);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(35, 13);
+            this.labelFecha.TabIndex = 27;
+            this.labelFecha.Text = "label2";
             // 
             // BtnExit
             // 
@@ -123,6 +132,7 @@
             this.CLIENTESToolStripMenuItem.Name = "CLIENTESToolStripMenuItem";
             this.CLIENTESToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.CLIENTESToolStripMenuItem.Text = "CLIENTES";
+            this.CLIENTESToolStripMenuItem.Click += new System.EventHandler(this.CLIENTESToolStripMenuItem_Click);
             // 
             // PROVEEDORToolStripMenuItem
             // 
@@ -199,15 +209,6 @@
             this.linkLabel1.TabIndex = 26;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Puesto:";
-            // 
-            // labelFecha
-            // 
-            this.labelFecha.AutoSize = true;
-            this.labelFecha.Location = new System.Drawing.Point(186, 54);
-            this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(35, 13);
-            this.labelFecha.TabIndex = 27;
-            this.labelFecha.Text = "label2";
             // 
             // timer
             // 

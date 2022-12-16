@@ -34,6 +34,7 @@ namespace BD_Modelorama
 
         private void BtnAcceder_Click(object sender, EventArgs e)
         {
+            bool existencia = true;
             try
             {
                 Conectar();
@@ -50,13 +51,11 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    Menu x = new Menu();
-                    x.NombreTrabajador = TxtNombre.Text;
-                    this.Hide();
-                    x.Show();
+                    existencia = true;
                 }
                 else
                 {
+                    existencia = false;
                     MessageBox.Show("USUARIO Y/O CONTASEÑA INCORRECTA");
                 }
             }
@@ -67,6 +66,51 @@ namespace BD_Modelorama
             finally
             {
                 Desconectar();
+            }
+
+            bool estatus = true;
+            try
+            {
+                Conectar();
+                string query = "Select * From empleado Where Nombre = ('" + TxtNombre.Text + "') And Estatus = 'Activo' ";
+                cmd = new MySqlCommand(query, cnn);
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    estatus = true;
+                }
+                else
+                {
+                    estatus = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+            if (existencia == true)
+            {
+                if (estatus == true)
+                {
+                    Menu x = new Menu();
+                    x.NombreTrabajador = TxtNombre.Text;
+                    this.Hide();
+                    x.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentra habilitado este usuario");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrecta");
             }
         }
 

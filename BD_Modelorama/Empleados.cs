@@ -214,8 +214,9 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                string query = "Select * From empleado Where Curp = ('" + TxtCurp.Text + "') and Edad = ('" + TxtEdad.Text + "')" +
-                    "And Puesto = ('"+CmbPuesto.Text+"') and Nombre =  ('"+TxtNombre.Text+"') and Contraseña = ('"+TxtContraseña.Text+"')";
+                string query = "Select * From empleado Where Edad = ('" + TxtEdad.Text + "')" +
+                    "And Puesto = ('" + CmbPuesto.Text + "') and Nombre =  ('" + TxtNombre.Text + "') and Contraseña = ('" + TxtContraseña.Text + "')" +
+                    " Where Curp = ('" + TxtCurp.Text + "')";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -300,6 +301,12 @@ namespace BD_Modelorama
 
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
+            if (TxtCurp.Text == "")
+            {
+                MessageBox.Show("Ingrese el curp", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             bool existe_empleado = true;
 
             try

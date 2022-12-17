@@ -52,6 +52,7 @@
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.BtnTerminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,6 +225,7 @@
             this.TxtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEstatus.Location = new System.Drawing.Point(85, 274);
             this.TxtEstatus.Name = "TxtEstatus";
+            this.TxtEstatus.ReadOnly = true;
             this.TxtEstatus.Size = new System.Drawing.Size(100, 22);
             this.TxtEstatus.TabIndex = 44;
             // 
@@ -289,11 +291,23 @@
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Datos de la consulta";
             // 
+            // BtnTerminar
+            // 
+            this.BtnTerminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTerminar.Location = new System.Drawing.Point(613, 45);
+            this.BtnTerminar.Name = "BtnTerminar";
+            this.BtnTerminar.Size = new System.Drawing.Size(75, 37);
+            this.BtnTerminar.TabIndex = 49;
+            this.BtnTerminar.Text = "Terminar";
+            this.BtnTerminar.UseVisualStyleBackColor = true;
+            this.BtnTerminar.Click += new System.EventHandler(this.BtnTerminar_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 389);
+            this.Controls.Add(this.BtnTerminar);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.BtnConsultar);
@@ -350,5 +364,6 @@
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Button BtnTerminar;
     }
 }

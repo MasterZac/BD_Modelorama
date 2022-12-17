@@ -130,11 +130,11 @@ namespace BD_Modelorama
                 cmd.Parameters.Add(ppuesto);
 
                 MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
-                pnombre.Value = TxtNombre.Text;
+                pnombre.Value = TxtNombre.Text.Trim();
                 cmd.Parameters.Add(pnombre);
 
                 MySqlParameter pcontraseña = new MySqlParameter("pcontraseña", MySqlDbType.VarChar, 10);
-                pcontraseña.Value = TxtContraseña.Text;
+                pcontraseña.Value = TxtContraseña.Text.Trim();
                 cmd.Parameters.Add(pcontraseña);
 
                 cmd.ExecuteNonQuery();
@@ -215,8 +215,8 @@ namespace BD_Modelorama
             {
                 Conectar();
                 string query = "Select * From empleado Where Edad = ('" + TxtEdad.Text + "')" +
-                    "And Puesto = ('" + CmbPuesto.Text + "') and Nombre =  ('" + TxtNombre.Text + "') and Contraseña = ('" + TxtContraseña.Text + "')" +
-                    " Where Curp = ('" + TxtCurp.Text + "')";
+                    " and Puesto = ('" + CmbPuesto.Text + "') and Nombre =  ('" + TxtNombre.Text + "') and Contraseña = ('" + TxtContraseña.Text + "')" +
+                    " and Curp = ('" + TxtCurp.Text + "')";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -270,11 +270,11 @@ namespace BD_Modelorama
                 cmd.Parameters.Add(ppuesto);
 
                 MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
-                pnombre.Value = TxtNombre.Text;
+                pnombre.Value = TxtNombre.Text.Trim();
                 cmd.Parameters.Add(pnombre);
 
                 MySqlParameter pcontraseña = new MySqlParameter("pcontraseña", MySqlDbType.VarChar, 10);
-                pcontraseña.Value = TxtContraseña.Text;
+                pcontraseña.Value = TxtContraseña.Text.Trim();
                 cmd.Parameters.Add(pcontraseña);
 
                 cmd.ExecuteNonQuery();
@@ -307,7 +307,7 @@ namespace BD_Modelorama
                 return;
             }
 
-            bool existe_empleado = true;
+      
 
             try
             {
@@ -322,16 +322,18 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    existe_empleado = true;
+                  
                     TxtEdad.Text = rd[1].ToString();
                     CmbPuesto.Text = rd[2].ToString();
                     TxtNombre.Text = rd[3].ToString();
                     TxtContraseña.Text = rd[4].ToString();
                     TxtEstatus.Text = rd[5].ToString();
+                    DGVEmpleados.Rows.Add(TxtCurp.Text,
+                        TxtNombre.Text, TxtEdad.Text,
+                        CmbPuesto.Text, TxtContraseña.Text, TxtEstatus.Text);
                 }
                 else
                 {
-                    existe_empleado = false;
                     MessageBox.Show("No hay registros de ese empleado");
                 }
             }
@@ -342,32 +344,6 @@ namespace BD_Modelorama
             finally
             {
                 Desconectar();
-            }
-
-            if (existe_empleado == true)
-            {
-                try
-                {
-                    Conectar();
-                    cmd = new MySqlCommand("ConsultaEmpleado", cnn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    MySqlParameter pcurp = new MySqlParameter("pcurp", MySqlDbType.VarChar, 20);
-                    pcurp.Value = TxtCurp.Text;
-                    cmd.Parameters.Add(pcurp);
-                    da = new MySqlDataAdapter(cmd);
-                    dt = new DataTable();
-                    da.Fill(dt);
-                    DGVEmpleados.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    Desconectar();
-                }
             }
         }
 

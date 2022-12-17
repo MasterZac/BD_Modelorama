@@ -54,6 +54,12 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.Curp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,9 +167,16 @@
             this.DGVEmpleados.AllowUserToResizeRows = false;
             this.DGVEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DGVEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Curp,
+            this.Contraseña,
+            this.Nombre,
+            this.Edad,
+            this.Puesto,
+            this.Estatus});
             this.DGVEmpleados.Location = new System.Drawing.Point(33, 357);
             this.DGVEmpleados.Name = "DGVEmpleados";
-            this.DGVEmpleados.Size = new System.Drawing.Size(699, 111);
+            this.DGVEmpleados.Size = new System.Drawing.Size(709, 111);
             this.DGVEmpleados.TabIndex = 9;
             // 
             // BtnRegistrar
@@ -322,6 +335,36 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // Curp
+            // 
+            this.Curp.HeaderText = "Curp";
+            this.Curp.Name = "Curp";
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.Name = "Contraseña";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Edad
+            // 
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            // 
+            // Puesto
+            // 
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            // 
+            // Estatus
+            // 
+            this.Estatus.HeaderText = "Estatus";
+            this.Estatus.Name = "Estatus";
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +432,11 @@
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
     }
 }

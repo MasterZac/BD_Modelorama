@@ -19,8 +19,12 @@ namespace BD_Modelorama
         MySqlDataAdapter da;
         DataTable dt;
 
-
         public string nombre;
+
+        public Clientes()
+        {
+            InitializeComponent();
+        }
 
         public void Conectar()
         {
@@ -31,11 +35,6 @@ namespace BD_Modelorama
         public void Desconectar()
         {
             cnn.Close();
-        }
-
-        public Clientes()
-        {
-            InitializeComponent();
         }
 
         public void Limpiar()
@@ -76,7 +75,7 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                string query = "Select * From cliente Where Dni = ('" + TxtDni.Text + "')";
+                string query = "Select * From cliente Where Dni = ('" + TxtDni.Text + "'); s";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -106,6 +105,7 @@ namespace BD_Modelorama
                     "and Direccion = ('" + TxtDireccion.Text + "') and Dni = ('" + TxtDni.Text + "')";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
+
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
@@ -138,8 +138,8 @@ namespace BD_Modelorama
                 cmd = new MySqlCommand("ConsultaCliente", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
-                dni.Value = TxtDni.Text;
+                MySqlParameter dni = new MySqlParameter("_dni", MySqlDbType.VarChar, 15);
+                dni.Value = TxtDni.Text.ToUpper();
                 cmd.Parameters.Add(dni);
 
                 rd = cmd.ExecuteReader();
@@ -175,9 +175,10 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("ConsultaCliente", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
-                    dni.Value = TxtDni.Text;
-                    cmd.Parameters.Add(dni);
+                    MySqlParameter _dni = new MySqlParameter("_dni", MySqlDbType.VarChar, 15);
+                    _dni.Value = TxtDni.Text.ToUpper();
+                    cmd.Parameters.Add(_dni);
+
                     da = new MySqlDataAdapter(cmd);
                     dt = new DataTable();
                     da.Fill(dt);
@@ -214,11 +215,11 @@ namespace BD_Modelorama
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
-                dni.Value = TxtDni.Text;
+                dni.Value = TxtDni.Text.ToUpper();
                 cmd.Parameters.Add(dni);
 
                 MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
-                nombre.Value = TxtNombre.Text;
+                nombre.Value = TxtNombre.Text.Trim();
                 cmd.Parameters.Add(nombre);
 
                 MySqlParameter nacimiento = new MySqlParameter("nacimiento", MySqlDbType.VarChar, 10);
@@ -226,7 +227,7 @@ namespace BD_Modelorama
                 cmd.Parameters.Add(nacimiento);
 
                 MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
-                direccion.Value = TxtDireccion.Text;
+                direccion.Value = TxtDireccion.Text.Trim();
                 cmd.Parameters.Add(direccion);
 
                 cmd.ExecuteNonQuery();
@@ -278,6 +279,7 @@ namespace BD_Modelorama
                     MySqlParameter estatus = new MySqlParameter("estatus", MySqlDbType.VarChar, 15);
                     estatus.Value = TxtEstatus.Text;
                     cmd.Parameters.Add(estatus);
+
                     cmd.ExecuteNonQuery();
                     Limpiar();
                 }
@@ -349,6 +351,14 @@ namespace BD_Modelorama
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void BtnTerminar_Click(object sender, EventArgs e)
+        {
+            Menu x = new Menu();
+            x.NombreTrabajador = LabelNombreEmpleado.Text;
+            x.Show();
+            this.Hide();
         }
     }
 }

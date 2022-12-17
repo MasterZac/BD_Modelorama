@@ -153,13 +153,13 @@
             // cOMPRASToolStripMenuItem
             // 
             this.cOMPRASToolStripMenuItem.Name = "cOMPRASToolStripMenuItem";
-            this.cOMPRASToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.cOMPRASToolStripMenuItem.Text = "COMPRAS";
+            this.cOMPRASToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.cOMPRASToolStripMenuItem.Text = "COMPRAR PRODUCTOS";
             // 
             // registroDeProductosToolStripMenuItem
             // 
             this.registroDeProductosToolStripMenuItem.Name = "registroDeProductosToolStripMenuItem";
-            this.registroDeProductosToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.registroDeProductosToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
             this.registroDeProductosToolStripMenuItem.Text = "REGISTRO PRODUCTOS";
             this.registroDeProductosToolStripMenuItem.Click += new System.EventHandler(this.registroDeProductosToolStripMenuItem_Click);
             // 

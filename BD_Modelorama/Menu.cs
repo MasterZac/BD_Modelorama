@@ -18,8 +18,8 @@ namespace BD_Modelorama
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader rd;
 
-        public string NombreTrabajador { get; set; }
-        public string Rol { get; set; }
+        public string NombreTrabajador;
+        public string Rol;
 
         public Menu()
         {
@@ -112,6 +112,15 @@ namespace BD_Modelorama
             x.nombre = LabelNombreEmpleado.Text;
             this.Hide();
             x.Show();
+        }
+
+        private void PROVEEDORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proveedor x = new Proveedor();
+            x.nombre = LabelNombreEmpleado.Text;
+            x.Show();
+            this.Hide();
+            
         }
     }
 }

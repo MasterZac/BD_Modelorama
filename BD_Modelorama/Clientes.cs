@@ -13,6 +13,11 @@ namespace BD_Modelorama
 {
     public partial class Clientes : Form
     {
+        public Clientes()
+        {
+            InitializeComponent();
+        }
+
         MySqlConnection cnn = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader rd;
@@ -21,10 +26,6 @@ namespace BD_Modelorama
 
         public string nombre;
 
-        public Clientes()
-        {
-            InitializeComponent();
-        }
 
         public void Conectar()
         {
@@ -75,7 +76,7 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                string query = "Select * From cliente Where Dni = ('" + TxtDni.Text + "'); s";
+                string query = "Select * From cliente Where Dni = ('" + TxtDni.Text + "');";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -311,41 +312,47 @@ namespace BD_Modelorama
                 MessageBox.Show("No realizo ninguna actualizacion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            try
+            if (ConsultarExistencia())
             {
-                Conectar();
-                cmd = new MySqlCommand("EditaCliente", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    Conectar();
+                    cmd = new MySqlCommand("EditaCliente", cnn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
-                dni.Value = TxtDni.Text;
-                cmd.Parameters.Add(dni);
+                    MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
+                    dni.Value = TxtDni.Text;
+                    cmd.Parameters.Add(dni);
 
-                MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
-                nombre.Value = TxtNombre.Text;
-                cmd.Parameters.Add(nombre);
+                    MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                    nombre.Value = TxtNombre.Text;
+                    cmd.Parameters.Add(nombre);
 
-                MySqlParameter nacimiento = new MySqlParameter("nacimiento", MySqlDbType.VarChar, 10);
-                nacimiento.Value = mkdNacimiento.Text;
-                cmd.Parameters.Add(nacimiento);
+                    MySqlParameter nacimiento = new MySqlParameter("nacimiento", MySqlDbType.VarChar, 10);
+                    nacimiento.Value = mkdNacimiento.Text;
+                    cmd.Parameters.Add(nacimiento);
 
-                MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
-                direccion.Value = TxtDireccion.Text;
-                cmd.Parameters.Add(direccion);
+                    MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
+                    direccion.Value = TxtDireccion.Text;
+                    cmd.Parameters.Add(direccion);
 
-                cmd.ExecuteNonQuery();
-                Limpiar();
-                MessageBox.Show("Cliente actualizado");
+                    cmd.ExecuteNonQuery();
+                    Limpiar();
+                    MessageBox.Show("Cliente actualizado");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Desconectar();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                Desconectar();
-            }
+                MessageBox.Show("Cliente no existete");
+            } 
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
@@ -359,6 +366,36 @@ namespace BD_Modelorama
             x.NombreTrabajador = LabelNombreEmpleado.Text;
             x.Show();
             this.Hide();
+        }
+
+        private void TxtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Caracter no permitido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo caracter de letras ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

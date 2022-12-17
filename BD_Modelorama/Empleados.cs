@@ -189,6 +189,7 @@ namespace BD_Modelorama
                     pestatus.Value = TxtEstatus.Text;
                     cmd.Parameters.Add(pestatus);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Estatus del empleado: " + TxtEstatus.Text);
                     Limpiar();
                     DGVEmpleados.Rows.RemoveAt(0);
                 }
@@ -251,45 +252,52 @@ namespace BD_Modelorama
                 return;
             }
 
-            try
+            if (ConsultarExistencia())
             {
-                Conectar();
-                cmd = new MySqlCommand("EditaEmpleado", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    Conectar();
+                    cmd = new MySqlCommand("EditaEmpleado", cnn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter pcurp = new MySqlParameter("pcurp", MySqlDbType.VarChar, 20);
-                pcurp.Value = TxtCurp.Text.ToUpper().Trim();
-                cmd.Parameters.Add(pcurp);
+                    MySqlParameter pcurp = new MySqlParameter("pcurp", MySqlDbType.VarChar, 20);
+                    pcurp.Value = TxtCurp.Text.ToUpper().Trim();
+                    cmd.Parameters.Add(pcurp);
 
-                MySqlParameter pedad = new MySqlParameter("pedad", MySqlDbType.Int32);
-                pedad.Value = TxtEdad.Text.Trim();
-                cmd.Parameters.Add(pedad);
+                    MySqlParameter pedad = new MySqlParameter("pedad", MySqlDbType.Int32);
+                    pedad.Value = TxtEdad.Text.Trim();
+                    cmd.Parameters.Add(pedad);
 
-                MySqlParameter ppuesto = new MySqlParameter("ppuesto", MySqlDbType.VarChar, 25);
-                ppuesto.Value = CmbPuesto.Text;
-                cmd.Parameters.Add(ppuesto);
+                    MySqlParameter ppuesto = new MySqlParameter("ppuesto", MySqlDbType.VarChar, 25);
+                    ppuesto.Value = CmbPuesto.Text;
+                    cmd.Parameters.Add(ppuesto);
 
-                MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
-                pnombre.Value = TxtNombre.Text.Trim();
-                cmd.Parameters.Add(pnombre);
+                    MySqlParameter pnombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 15);
+                    pnombre.Value = TxtNombre.Text.Trim();
+                    cmd.Parameters.Add(pnombre);
 
-                MySqlParameter pcontraseña = new MySqlParameter("pcontraseña", MySqlDbType.VarChar, 10);
-                pcontraseña.Value = TxtContraseña.Text.Trim();
-                cmd.Parameters.Add(pcontraseña);
+                    MySqlParameter pcontraseña = new MySqlParameter("pcontraseña", MySqlDbType.VarChar, 10);
+                    pcontraseña.Value = TxtContraseña.Text.Trim();
+                    cmd.Parameters.Add(pcontraseña);
 
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Empleado actualizado");
-                Limpiar();
-                DGVEmpleados.Rows.RemoveAt(0);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Empleado actualizado");
+                    Limpiar();
+                    DGVEmpleados.Rows.RemoveAt(0);
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Desconectar();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                Desconectar();
+                MessageBox.Show("Empleado no existente");
             }
         }
 
@@ -306,8 +314,6 @@ namespace BD_Modelorama
                 MessageBox.Show("Ingrese el curp", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-      
 
             try
             {

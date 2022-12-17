@@ -139,6 +139,7 @@
             this.PROVEEDORToolStripMenuItem.Name = "PROVEEDORToolStripMenuItem";
             this.PROVEEDORToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.PROVEEDORToolStripMenuItem.Text = "PROVEEDOR";
+            this.PROVEEDORToolStripMenuItem.Click += new System.EventHandler(this.PROVEEDORToolStripMenuItem_Click);
             // 
             // PRODUCTOSToolStripMenuItem
             // 

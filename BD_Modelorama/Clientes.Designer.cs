@@ -190,6 +190,7 @@
             this.TxtDni.Name = "TxtDni";
             this.TxtDni.Size = new System.Drawing.Size(100, 22);
             this.TxtDni.TabIndex = 39;
+            this.TxtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDni_KeyPress);
             // 
             // TxtNombre
             // 
@@ -199,6 +200,7 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(139, 22);
             this.TxtNombre.TabIndex = 40;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // TxtDireccion
             // 
@@ -209,6 +211,7 @@
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(139, 69);
             this.TxtDireccion.TabIndex = 41;
+            this.TxtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDireccion_KeyPress);
             // 
             // mkdNacimiento
             // 
@@ -306,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 389);
+            this.ClientSize = new System.Drawing.Size(754, 397);
             this.Controls.Add(this.BtnTerminar);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel1);

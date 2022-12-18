@@ -35,6 +35,8 @@
             this.LabelNombreEmpleado = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtEstatus = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -50,8 +52,6 @@
             this.Dgv = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.BtnSalir = new System.Windows.Forms.Button();
-            this.TxtEstatus = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
@@ -133,6 +133,25 @@
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle proveedor";
+            // 
+            // TxtEstatus
+            // 
+            this.TxtEstatus.Location = new System.Drawing.Point(618, 100);
+            this.TxtEstatus.MaxLength = 10;
+            this.TxtEstatus.Name = "TxtEstatus";
+            this.TxtEstatus.ReadOnly = true;
+            this.TxtEstatus.Size = new System.Drawing.Size(100, 21);
+            this.TxtEstatus.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(561, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Estatus";
             // 
             // BtnNuevo
             // 
@@ -275,28 +294,9 @@
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(75, 23);
             this.BtnSalir.TabIndex = 51;
-            this.BtnSalir.Text = "Cerrar";
+            this.BtnSalir.Text = "Menu";
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // TxtEstatus
-            // 
-            this.TxtEstatus.Location = new System.Drawing.Point(618, 100);
-            this.TxtEstatus.MaxLength = 10;
-            this.TxtEstatus.Name = "TxtEstatus";
-            this.TxtEstatus.ReadOnly = true;
-            this.TxtEstatus.Size = new System.Drawing.Size(100, 21);
-            this.TxtEstatus.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(561, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Estatus";
             // 
             // Proveedor
             // 

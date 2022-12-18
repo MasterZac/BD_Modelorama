@@ -301,7 +301,7 @@
             this.BtnTerminar.Name = "BtnTerminar";
             this.BtnTerminar.Size = new System.Drawing.Size(75, 37);
             this.BtnTerminar.TabIndex = 49;
-            this.BtnTerminar.Text = "Terminar";
+            this.BtnTerminar.Text = "Menu";
             this.BtnTerminar.UseVisualStyleBackColor = true;
             this.BtnTerminar.Click += new System.EventHandler(this.BtnTerminar_Click);
             // 

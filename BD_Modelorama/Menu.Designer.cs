@@ -155,6 +155,7 @@
             this.cOMPRASToolStripMenuItem.Name = "cOMPRASToolStripMenuItem";
             this.cOMPRASToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
             this.cOMPRASToolStripMenuItem.Text = "COMPRAR PRODUCTOS";
+            this.cOMPRASToolStripMenuItem.Click += new System.EventHandler(this.cOMPRASToolStripMenuItem_Click);
             // 
             // registroDeProductosToolStripMenuItem
             // 

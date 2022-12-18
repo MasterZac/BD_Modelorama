@@ -39,6 +39,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtContraseña = new System.Windows.Forms.TextBox();
             this.DGVEmpleados = new System.Windows.Forms.DataGridView();
+            this.Curp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnRegistrar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
@@ -54,12 +60,6 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.Curp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,6 +179,36 @@
             this.DGVEmpleados.Size = new System.Drawing.Size(709, 111);
             this.DGVEmpleados.TabIndex = 9;
             // 
+            // Curp
+            // 
+            this.Curp.HeaderText = "Curp";
+            this.Curp.Name = "Curp";
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.Name = "Contraseña";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Edad
+            // 
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            // 
+            // Puesto
+            // 
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            // 
+            // Estatus
+            // 
+            this.Estatus.HeaderText = "Estatus";
+            this.Estatus.Name = "Estatus";
+            // 
             // BtnRegistrar
             // 
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,7 +271,7 @@
             this.BtnTerminar.Name = "BtnTerminar";
             this.BtnTerminar.Size = new System.Drawing.Size(75, 37);
             this.BtnTerminar.TabIndex = 16;
-            this.BtnTerminar.Text = "Terminar";
+            this.BtnTerminar.Text = "Menu";
             this.BtnTerminar.UseVisualStyleBackColor = true;
             this.BtnTerminar.Click += new System.EventHandler(this.BtnTerminar_Click);
             // 
@@ -334,36 +364,6 @@
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // Curp
-            // 
-            this.Curp.HeaderText = "Curp";
-            this.Curp.Name = "Curp";
-            // 
-            // Contraseña
-            // 
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.Name = "Contraseña";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Edad
-            // 
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            // 
-            // Puesto
-            // 
-            this.Puesto.HeaderText = "Puesto";
-            this.Puesto.Name = "Puesto";
-            // 
-            // Estatus
-            // 
-            this.Estatus.HeaderText = "Estatus";
-            this.Estatus.Name = "Estatus";
             // 
             // Empleados
             // 

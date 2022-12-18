@@ -122,5 +122,13 @@ namespace BD_Modelorama
             this.Hide();
             
         }
+
+        private void cOMPRASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Compras form = new Compras();
+            form.nombreEmpleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            form.Show();
+        }
     }
 }

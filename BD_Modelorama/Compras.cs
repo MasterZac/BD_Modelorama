@@ -184,15 +184,202 @@ namespace BD_Modelorama
             double Monto_compra = cantidad * precioCompra; 
             Dgv.Rows.Add(TxtCodigoCompra.Text.ToUpper(), 
                 TxtCodigo.Text.ToUpper(),TxtNombreProducto.Text, 
-                TxtPrecioCompra.Text,TxtCantidad.Value, 
+                TxtPrecioCompra.Value, TxtCantidad.Value, 
                 Monto_compra.ToString());
             MessageBox.Show("Produco Agregado a la compra");
             BtnConsultarProveedor.Enabled = false;
             calcularTotal();
             TxtCodigo.Clear();
             TxtNombreProducto.Clear();
-            TxtPrecioCompra.Clear();
+            TxtPrecioCompra.Value = 0;
             TxtCantidad.Value= 0;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count == 0)
+            {
+                MessageBox.Show("No ha ingresado producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            bool aux = false;
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("AddCompra", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter codigo = new MySqlParameter("codigo", MySqlDbType.VarChar, 10);
+                codigo.Value = TxtCodigoCompra.Text.ToUpper();
+                cmd.Parameters.Add(codigo);
+
+                MySqlParameter id_proveedor = new MySqlParameter("id_proveedor", MySqlDbType.VarChar, 15);
+                id_proveedor.Value = TxtID.Text.ToUpper();
+                cmd.Parameters.Add(id_proveedor);
+
+                MySqlParameter fecha = new MySqlParameter("fecha", MySqlDbType.DateTime);
+                fecha.Value = Convert.ToDateTime(DateTime.Now.ToString("G"));
+                cmd.Parameters.Add(fecha);
+
+                MySqlParameter monto = new MySqlParameter("monto", MySqlDbType.Double);
+                monto.Value = TxtTotalCompra.Text;
+                cmd.Parameters.Add(monto);
+                cmd.ExecuteNonQuery();
+                aux = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+            if (aux == true)
+            {
+                try
+                {
+                    Conectar();
+                    cmd = new MySqlCommand("AddTiene", cnn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (DataGridViewRow row in Dgv.Rows)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.Add("_codigo_compra", MySqlDbType.VarChar, 10).Value = Convert.ToString(row.Cells["Codigo_compra"].Value);
+                        cmd.Parameters.Add("_codigo_producto", MySqlDbType.VarChar, 15).Value = Convert.ToString(row.Cells["Codigo_producto"].Value);
+                        cmd.Parameters.Add("_nombre", MySqlDbType.VarChar, 50).Value = Convert.ToString(row.Cells["Nombre"].Value);
+                        cmd.Parameters.Add("_precio_compra", MySqlDbType.Double).Value = Convert.ToString(row.Cells["Precio_compra"].Value);
+                        cmd.Parameters.Add("_cantidad", MySqlDbType.Int32).Value = Convert.ToString(row.Cells["Cantidad"].Value);
+                        cmd.Parameters.Add("_monto_compra", MySqlDbType.Double).Value = Convert.ToString(row.Cells["Monto"].Value);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    Desconectar();
+                }
+            }
+
+            Dgv.Rows.Clear();
+            Limpiar();
+            MessageBox.Show("Compra exitosa");
+            BtnConsultarProveedor.Enabled = true;
+            calcularTotal();
+        }
+
+        public void Limpiar()
+        {
+            TxtCodigoCompra.Clear();
+            TxtID.Clear();
+            TxtNombreProveedor.Clear();
+            TxtCodigo.Clear();
+            TxtNombreProducto.Clear();
+            TxtPrecioCompra.Value = 0;
+            TxtCantidad.Value = 0;
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay productos agregados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Dgv.SelectedRows.Count > 0)
+            {
+                TxtCodigo.Text = Dgv.SelectedCells[1].Value.ToString();
+                TxtNombreProducto.Text = Dgv.SelectedCells[2].Value.ToString();
+                TxtPrecioCompra.Text = Dgv.SelectedCells[3].Value.ToString();
+                TxtCantidad.Value = Convert.ToInt32(Dgv.SelectedCells[4].Value.ToString());
+
+                foreach (DataGridViewRow remover in Dgv.SelectedRows)
+                {
+                    Dgv.Rows.Remove(remover);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un producto");
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay productos agregados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Dgv.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow remover in Dgv.SelectedRows)
+                {
+                    Dgv.Rows.Remove(remover);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Eliga un producto");
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count > 0)
+            {
+                Dgv.Rows.Clear();
+            }
+
+            TxtCodigo.Clear();
+            TxtNombreProducto.Clear();
+            TxtCodigoCompra.Clear();
+            TxtCantidad.Value = 0;
+            TxtID.Clear();
+            TxtNombreProveedor.Clear();
+            BtnConsultarProveedor.Enabled = true;
+        }
+
+        private void TxtCodigoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Caracter no permitido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtNombreProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Caracter no permitido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

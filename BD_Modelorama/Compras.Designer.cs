@@ -37,21 +37,27 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.TxtCodigoCompra = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnLimpiarP = new System.Windows.Forms.Button();
             this.BtnConsultarProveedor = new System.Windows.Forms.Button();
             this.TxtNombreProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnLimpiarP = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TxtCantidad = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtNombreProducto = new System.Windows.Forms.TextBox();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtCodigo = new System.Windows.Forms.TextBox();
-            this.TxtNombreProducto = new System.Windows.Forms.TextBox();
-            this.TxtPrecioCompra = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.Dgv = new System.Windows.Forms.DataGridView();
+            this.Codigo_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.TxtTotalCompra = new System.Windows.Forms.TextBox();
@@ -59,19 +65,14 @@
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.CodigoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtCantidad = new System.Windows.Forms.NumericUpDown();
+            this.BtnTerminarCompra = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.TxtPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtPrecioCompra)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFecha
@@ -139,6 +140,7 @@
             this.TxtCodigoCompra.Name = "TxtCodigoCompra";
             this.TxtCodigoCompra.Size = new System.Drawing.Size(100, 20);
             this.TxtCodigoCompra.TabIndex = 40;
+            this.TxtCodigoCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoCompra_KeyPress);
             // 
             // groupBox1
             // 
@@ -155,6 +157,15 @@
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle proveedor";
+            // 
+            // BtnLimpiarP
+            // 
+            this.BtnLimpiarP.Location = new System.Drawing.Point(459, 36);
+            this.BtnLimpiarP.Name = "BtnLimpiarP";
+            this.BtnLimpiarP.Size = new System.Drawing.Size(75, 36);
+            this.BtnLimpiarP.TabIndex = 43;
+            this.BtnLimpiarP.Text = "Limpiar";
+            this.BtnLimpiarP.UseVisualStyleBackColor = true;
             // 
             // BtnConsultarProveedor
             // 
@@ -203,20 +214,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // BtnLimpiarP
-            // 
-            this.BtnLimpiarP.Location = new System.Drawing.Point(459, 36);
-            this.BtnLimpiarP.Name = "BtnLimpiarP";
-            this.BtnLimpiarP.Size = new System.Drawing.Size(75, 36);
-            this.BtnLimpiarP.TabIndex = 43;
-            this.BtnLimpiarP.Text = "Limpiar";
-            this.BtnLimpiarP.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.TxtPrecioCompra);
             this.groupBox2.Controls.Add(this.TxtCantidad);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.TxtPrecioCompra);
             this.groupBox2.Controls.Add(this.TxtNombreProducto);
             this.groupBox2.Controls.Add(this.TxtCodigo);
             this.groupBox2.Controls.Add(this.label5);
@@ -229,6 +231,55 @@
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle Productos";
+            // 
+            // TxtCantidad
+            // 
+            this.TxtCantidad.Location = new System.Drawing.Point(228, 102);
+            this.TxtCantidad.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.TxtCantidad.Name = "TxtCantidad";
+            this.TxtCantidad.Size = new System.Drawing.Size(120, 22);
+            this.TxtCantidad.TabIndex = 44;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(211, 16);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Ingrese la cantidad que comprara:";
+            // 
+            // TxtNombreProducto
+            // 
+            this.TxtNombreProducto.Location = new System.Drawing.Point(287, 39);
+            this.TxtNombreProducto.Multiline = true;
+            this.TxtNombreProducto.Name = "TxtNombreProducto";
+            this.TxtNombreProducto.Size = new System.Drawing.Size(141, 36);
+            this.TxtNombreProducto.TabIndex = 43;
+            this.TxtNombreProducto.TextChanged += new System.EventHandler(this.TxtNombreProducto_TextChanged);
+            this.TxtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombreProducto_KeyPress);
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(75, 37);
+            this.TxtCodigo.MaxLength = 10;
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(100, 22);
+            this.TxtCodigo.TabIndex = 43;
+            this.TxtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigo_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(460, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 16);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Precio compra $:";
             // 
             // label4
             // 
@@ -248,47 +299,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(460, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Precio compra $:";
-            // 
-            // TxtCodigo
-            // 
-            this.TxtCodigo.Location = new System.Drawing.Point(75, 37);
-            this.TxtCodigo.MaxLength = 10;
-            this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.Size = new System.Drawing.Size(100, 22);
-            this.TxtCodigo.TabIndex = 43;
-            // 
-            // TxtNombreProducto
-            // 
-            this.TxtNombreProducto.Location = new System.Drawing.Point(287, 39);
-            this.TxtNombreProducto.Multiline = true;
-            this.TxtNombreProducto.Name = "TxtNombreProducto";
-            this.TxtNombreProducto.Size = new System.Drawing.Size(141, 36);
-            this.TxtNombreProducto.TabIndex = 43;
-            // 
-            // TxtPrecioCompra
-            // 
-            this.TxtPrecioCompra.Location = new System.Drawing.Point(574, 39);
-            this.TxtPrecioCompra.Name = "TxtPrecioCompra";
-            this.TxtPrecioCompra.Size = new System.Drawing.Size(100, 22);
-            this.TxtPrecioCompra.TabIndex = 43;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(211, 16);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Ingrese la cantidad que comprara:";
-            // 
             // Dgv
             // 
             this.Dgv.AllowUserToAddRows = false;
@@ -296,16 +306,46 @@
             this.Dgv.AllowUserToResizeColumns = false;
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoCompra,
+            this.Codigo_compra,
             this.Codigo_producto,
             this.Nombre,
-            this.PrecioCompra,
+            this.Precio_compra,
             this.Cantidad,
             this.Monto});
             this.Dgv.Location = new System.Drawing.Point(29, 324);
             this.Dgv.Name = "Dgv";
             this.Dgv.Size = new System.Drawing.Size(669, 134);
             this.Dgv.TabIndex = 43;
+            // 
+            // Codigo_compra
+            // 
+            this.Codigo_compra.HeaderText = "Codigo de Compra";
+            this.Codigo_compra.Name = "Codigo_compra";
+            // 
+            // Codigo_producto
+            // 
+            this.Codigo_producto.HeaderText = "Codigo de producto";
+            this.Codigo_producto.Name = "Codigo_producto";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Precio_compra
+            // 
+            this.Precio_compra.HeaderText = "Precio de compra";
+            this.Precio_compra.Name = "Precio_compra";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
             // 
             // linkLabel4
             // 
@@ -355,6 +395,7 @@
             this.BtnEditar.TabIndex = 48;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnEliminar
             // 
@@ -364,6 +405,7 @@
             this.BtnEliminar.TabIndex = 49;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnCancelar
             // 
@@ -373,52 +415,17 @@
             this.BtnCancelar.TabIndex = 50;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // button5
+            // BtnTerminarCompra
             // 
-            this.button5.Location = new System.Drawing.Point(585, 479);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(131, 34);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "Terminar Compra";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // CodigoCompra
-            // 
-            this.CodigoCompra.HeaderText = "Codigo de Compra";
-            this.CodigoCompra.Name = "CodigoCompra";
-            // 
-            // Codigo_producto
-            // 
-            this.Codigo_producto.HeaderText = "Codigo de producto";
-            this.Codigo_producto.Name = "Codigo_producto";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Precio de compra";
-            this.PrecioCompra.Name = "PrecioCompra";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            // 
-            // TxtCantidad
-            // 
-            this.TxtCantidad.Location = new System.Drawing.Point(228, 102);
-            this.TxtCantidad.Name = "TxtCantidad";
-            this.TxtCantidad.Size = new System.Drawing.Size(120, 22);
-            this.TxtCantidad.TabIndex = 44;
+            this.BtnTerminarCompra.Location = new System.Drawing.Point(585, 479);
+            this.BtnTerminarCompra.Name = "BtnTerminarCompra";
+            this.BtnTerminarCompra.Size = new System.Drawing.Size(131, 34);
+            this.BtnTerminarCompra.TabIndex = 51;
+            this.BtnTerminarCompra.Text = "Terminar Compra";
+            this.BtnTerminarCompra.UseVisualStyleBackColor = true;
+            this.BtnTerminarCompra.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnMenu
             // 
@@ -430,13 +437,25 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // TxtPrecioCompra
+            // 
+            this.TxtPrecioCompra.Location = new System.Drawing.Point(567, 37);
+            this.TxtPrecioCompra.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.TxtPrecioCompra.Name = "TxtPrecioCompra";
+            this.TxtPrecioCompra.Size = new System.Drawing.Size(102, 22);
+            this.TxtPrecioCompra.TabIndex = 53;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 530);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.BtnTerminarCompra);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnEditar);
@@ -461,8 +480,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtPrecioCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,7 +508,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtPrecioCompra;
         private System.Windows.Forms.TextBox TxtNombreProducto;
         private System.Windows.Forms.TextBox TxtCodigo;
         private System.Windows.Forms.Label label7;
@@ -500,14 +519,15 @@
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.Button BtnTerminarCompra;
         private System.Windows.Forms.NumericUpDown TxtCantidad;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.NumericUpDown TxtPrecioCompra;
     }
 }

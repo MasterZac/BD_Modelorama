@@ -121,6 +121,9 @@
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registro_productos.resx">
+      <DependentUpon>Registro_productos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -222,13 +222,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 256);
+            this.ControlBox = false;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelPuesto);
             this.Controls.Add(this.LabelNombreEmpleado);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -39,7 +39,10 @@ namespace BD_Modelorama
 
         private void registroDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Registro_productos x = new Registro_productos();
+            x.Nombre_empleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            x.Show();
         }
 
         private void EMPLEADOSToolStripMenuItem_Click(object sender, EventArgs e)

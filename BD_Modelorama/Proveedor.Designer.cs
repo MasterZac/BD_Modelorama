@@ -303,6 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 454);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -311,6 +312,7 @@
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelNombreEmpleado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Proveedor";
             this.Text = "Proveedor";
             this.Load += new System.EventHandler(this.Proveedor_Load);

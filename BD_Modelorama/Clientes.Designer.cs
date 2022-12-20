@@ -310,6 +310,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 397);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnTerminar);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel1);

@@ -141,5 +141,10 @@ namespace BD_Modelorama
             this.Hide();
             x.Show();
         }
+
+        private void rEGISTRARVENTAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

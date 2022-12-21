@@ -43,14 +43,14 @@
             this.registroDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lISTADEENTRADASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VENTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRARVENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vENTASREALIZADASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cORTESDECAJAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabelNombreEmpleado = new System.Windows.Forms.Label();
             this.LabelPuesto = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.rEGISTRARVENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vENTASREALIZADASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cORTESDECAJAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -186,6 +186,25 @@
             this.VENTASToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.VENTASToolStripMenuItem.Text = "VENTAS";
             // 
+            // rEGISTRARVENTAToolStripMenuItem
+            // 
+            this.rEGISTRARVENTAToolStripMenuItem.Name = "rEGISTRARVENTAToolStripMenuItem";
+            this.rEGISTRARVENTAToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.rEGISTRARVENTAToolStripMenuItem.Text = "REGISTRAR VENTA";
+            this.rEGISTRARVENTAToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARVENTAToolStripMenuItem_Click);
+            // 
+            // vENTASREALIZADASToolStripMenuItem
+            // 
+            this.vENTASREALIZADASToolStripMenuItem.Name = "vENTASREALIZADASToolStripMenuItem";
+            this.vENTASREALIZADASToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.vENTASREALIZADASToolStripMenuItem.Text = "HISTORIAL VENTAS Y PRODUCTOS";
+            // 
+            // cORTESDECAJAToolStripMenuItem
+            // 
+            this.cORTESDECAJAToolStripMenuItem.Name = "cORTESDECAJAToolStripMenuItem";
+            this.cORTESDECAJAToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.cORTESDECAJAToolStripMenuItem.Text = "CORTES DE CAJA";
+            // 
             // LabelNombreEmpleado
             // 
             this.LabelNombreEmpleado.AutoSize = true;
@@ -232,24 +251,6 @@
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // rEGISTRARVENTAToolStripMenuItem
-            // 
-            this.rEGISTRARVENTAToolStripMenuItem.Name = "rEGISTRARVENTAToolStripMenuItem";
-            this.rEGISTRARVENTAToolStripMenuItem.Size = new System.Drawing.Size(257, 24);
-            this.rEGISTRARVENTAToolStripMenuItem.Text = "REGISTRAR VENTA";
-            // 
-            // vENTASREALIZADASToolStripMenuItem
-            // 
-            this.vENTASREALIZADASToolStripMenuItem.Name = "vENTASREALIZADASToolStripMenuItem";
-            this.vENTASREALIZADASToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
-            this.vENTASREALIZADASToolStripMenuItem.Text = "HISTORIAL VENTAS Y PRODUCTOS";
-            // 
-            // cORTESDECAJAToolStripMenuItem
-            // 
-            this.cORTESDECAJAToolStripMenuItem.Name = "cORTESDECAJAToolStripMenuItem";
-            this.cORTESDECAJAToolStripMenuItem.Size = new System.Drawing.Size(257, 24);
-            this.cORTESDECAJAToolStripMenuItem.Text = "CORTES DE CAJA";
             // 
             // Menu
             // 

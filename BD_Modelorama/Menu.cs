@@ -133,5 +133,13 @@ namespace BD_Modelorama
             this.Hide();
             form.Show();
         }
+
+        private void lISTADEENTRADASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Lista_de_entradas x = new Lista_de_entradas();
+            x.nombreempleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            x.Show();
+        }
     }
 }

@@ -35,36 +35,31 @@
             this.LabelNombreEmpleado = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnMenu = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListadoProductos = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Btneliminar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.CmbBuscarProductos = new System.Windows.Forms.ComboBox();
+            this.TxtBuscarProductosC = new System.Windows.Forms.TextBox();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.TxtPrecio = new System.Windows.Forms.TextBox();
+            this.TxtEstatus = new System.Windows.Forms.TextBox();
             this.BtnLimp = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.BtnMenu = new System.Windows.Forms.Button();
+            this.TxtStock = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dgv2 = new System.Windows.Forms.DataGridView();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TxtBuscarRegistros = new System.Windows.Forms.TextBox();
+            this.CmbRegistros = new System.Windows.Forms.ComboBox();
+            this.BtnLimpiar2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtPrecioVenta = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListadoProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFecha
@@ -130,6 +125,16 @@
             this.panel1.Size = new System.Drawing.Size(180, 546);
             this.panel1.TabIndex = 43;
             // 
+            // BtnMenu
+            // 
+            this.BtnMenu.Location = new System.Drawing.Point(6, 226);
+            this.BtnMenu.Name = "BtnMenu";
+            this.BtnMenu.Size = new System.Drawing.Size(158, 39);
+            this.BtnMenu.TabIndex = 62;
+            this.BtnMenu.Text = "Menu";
+            this.BtnMenu.UseVisualStyleBackColor = true;
+            this.BtnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -150,15 +155,17 @@
             this.DgvListadoProductos.ReadOnly = true;
             this.DgvListadoProductos.Size = new System.Drawing.Size(623, 119);
             this.DgvListadoProductos.TabIndex = 49;
+            this.DgvListadoProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListadoProductos_CellClick);
             // 
-            // button2
+            // Btneliminar
             // 
-            this.button2.Location = new System.Drawing.Point(724, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 33);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "Habilitar / Deshabilitar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Btneliminar.Location = new System.Drawing.Point(724, 237);
+            this.Btneliminar.Name = "Btneliminar";
+            this.Btneliminar.Size = new System.Drawing.Size(120, 33);
+            this.Btneliminar.TabIndex = 50;
+            this.Btneliminar.Text = "Habilitar / Deshabilitar";
+            this.Btneliminar.UseVisualStyleBackColor = true;
+            this.Btneliminar.Click += new System.EventHandler(this.button2_Click);
             // 
             // BtnEditar
             // 
@@ -168,103 +175,99 @@
             this.BtnEditar.TabIndex = 51;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnLimpiar
             // 
             this.BtnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiar.Location = new System.Drawing.Point(528, 32);
             this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpiar.Size = new System.Drawing.Size(75, 27);
             this.BtnLimpiar.TabIndex = 52;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
-            // comboBox1
+            // CmbBuscarProductos
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Codigo"});
-            this.comboBox1.Location = new System.Drawing.Point(222, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 53;
-            this.comboBox1.Text = "Consultar por:";
+            this.CmbBuscarProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbBuscarProductos.FormattingEnabled = true;
+            this.CmbBuscarProductos.Items.AddRange(new object[] {
+            "Codigo_compra ",
+            "Codigo_producto",
+            "Nombre",
+            "Cantidad ",
+            "Precio_compra"});
+            this.CmbBuscarProductos.Location = new System.Drawing.Point(222, 30);
+            this.CmbBuscarProductos.Name = "CmbBuscarProductos";
+            this.CmbBuscarProductos.Size = new System.Drawing.Size(121, 23);
+            this.CmbBuscarProductos.TabIndex = 53;
+            this.CmbBuscarProductos.Text = "Consultar por:";
             // 
-            // textBox1
+            // TxtBuscarProductosC
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(360, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 21);
-            this.textBox1.TabIndex = 54;
+            this.TxtBuscarProductosC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBuscarProductosC.Location = new System.Drawing.Point(360, 32);
+            this.TxtBuscarProductosC.Name = "TxtBuscarProductosC";
+            this.TxtBuscarProductosC.Size = new System.Drawing.Size(129, 21);
+            this.TxtBuscarProductosC.TabIndex = 54;
+            this.TxtBuscarProductosC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscarProductosC_KeyPress);
+            this.TxtBuscarProductosC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscarProductosC_KeyUp);
             // 
-            // textBox2
+            // TxtCodigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(221, 244);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 20);
-            this.textBox2.TabIndex = 55;
-            this.textBox2.Text = "Codigo";
+            this.TxtCodigo.Location = new System.Drawing.Point(221, 244);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.ReadOnly = true;
+            this.TxtCodigo.Size = new System.Drawing.Size(108, 20);
+            this.TxtCodigo.TabIndex = 55;
+            this.TxtCodigo.Text = "Codigo";
             // 
-            // textBox3
+            // TxtNombre
             // 
-            this.textBox3.Location = new System.Drawing.Point(221, 288);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(108, 20);
-            this.textBox3.TabIndex = 56;
-            this.textBox3.Text = "Nombre";
+            this.TxtNombre.Location = new System.Drawing.Point(221, 288);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.ReadOnly = true;
+            this.TxtNombre.Size = new System.Drawing.Size(108, 20);
+            this.TxtNombre.TabIndex = 56;
+            this.TxtNombre.Text = "Nombre";
             // 
-            // textBox4
+            // TxtPrecio
             // 
-            this.textBox4.Location = new System.Drawing.Point(347, 244);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(108, 20);
-            this.textBox4.TabIndex = 57;
-            this.textBox4.Text = "Precio";
+            this.TxtPrecio.Location = new System.Drawing.Point(347, 244);
+            this.TxtPrecio.Name = "TxtPrecio";
+            this.TxtPrecio.ReadOnly = true;
+            this.TxtPrecio.Size = new System.Drawing.Size(108, 20);
+            this.TxtPrecio.TabIndex = 57;
+            this.TxtPrecio.Text = "Precio";
             // 
-            // textBox5
+            // TxtEstatus
             // 
-            this.textBox5.Location = new System.Drawing.Point(476, 244);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(108, 20);
-            this.textBox5.TabIndex = 58;
-            this.textBox5.Text = "Precio venta";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(485, 288);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(108, 20);
-            this.textBox6.TabIndex = 59;
-            this.textBox6.Text = "Estatus";
+            this.TxtEstatus.Location = new System.Drawing.Point(476, 288);
+            this.TxtEstatus.Name = "TxtEstatus";
+            this.TxtEstatus.ReadOnly = true;
+            this.TxtEstatus.Size = new System.Drawing.Size(108, 20);
+            this.TxtEstatus.TabIndex = 59;
+            this.TxtEstatus.Text = "Estatus";
             // 
             // BtnLimp
             // 
-            this.BtnLimp.Location = new System.Drawing.Point(626, 288);
+            this.BtnLimp.Location = new System.Drawing.Point(768, 288);
             this.BtnLimp.Name = "BtnLimp";
             this.BtnLimp.Size = new System.Drawing.Size(75, 33);
             this.BtnLimp.TabIndex = 60;
             this.BtnLimp.Text = "Limpiar";
             this.BtnLimp.UseVisualStyleBackColor = true;
+            this.BtnLimp.Click += new System.EventHandler(this.BtnLimp_Click);
             // 
-            // textBox7
+            // TxtStock
             // 
-            this.textBox7.Location = new System.Drawing.Point(347, 288);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(108, 20);
-            this.textBox7.TabIndex = 61;
-            this.textBox7.Text = "Stock";
-            // 
-            // BtnMenu
-            // 
-            this.BtnMenu.Location = new System.Drawing.Point(6, 226);
-            this.BtnMenu.Name = "BtnMenu";
-            this.BtnMenu.Size = new System.Drawing.Size(158, 39);
-            this.BtnMenu.TabIndex = 62;
-            this.BtnMenu.Text = "Menu";
-            this.BtnMenu.UseVisualStyleBackColor = true;
-            this.BtnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
+            this.TxtStock.Location = new System.Drawing.Point(347, 288);
+            this.TxtStock.Name = "TxtStock";
+            this.TxtStock.ReadOnly = true;
+            this.TxtStock.Size = new System.Drawing.Size(108, 20);
+            this.TxtStock.TabIndex = 61;
+            this.TxtStock.Text = "Stock";
             // 
             // linkLabel1
             // 
@@ -277,98 +280,87 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Detalle producto";
             // 
-            // dataGridView1
+            // Dgv2
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo_producto,
-            this.Nombre,
-            this.Precio,
-            this.Precio_venta,
-            this.Stock,
-            this.Estatus});
-            this.dataGridView1.Location = new System.Drawing.Point(220, 395);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(624, 137);
-            this.dataGridView1.TabIndex = 63;
+            this.Dgv2.AllowUserToAddRows = false;
+            this.Dgv2.AllowUserToDeleteRows = false;
+            this.Dgv2.AllowUserToResizeColumns = false;
+            this.Dgv2.AllowUserToResizeRows = false;
+            this.Dgv2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Dgv2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv2.Location = new System.Drawing.Point(220, 395);
+            this.Dgv2.Name = "Dgv2";
+            this.Dgv2.ReadOnly = true;
+            this.Dgv2.Size = new System.Drawing.Size(624, 137);
+            this.Dgv2.TabIndex = 63;
+            this.Dgv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(724, 288);
+            this.BtnAgregar.Location = new System.Drawing.Point(626, 288);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(108, 33);
             this.BtnAgregar.TabIndex = 64;
             this.BtnAgregar.Text = "Registrar productos";
             this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // Codigo_producto
+            // TxtBuscarRegistros
             // 
-            this.Codigo_producto.HeaderText = "Codigo de producto";
-            this.Codigo_producto.Name = "Codigo_producto";
+            this.TxtBuscarRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBuscarRegistros.Location = new System.Drawing.Point(360, 368);
+            this.TxtBuscarRegistros.Name = "TxtBuscarRegistros";
+            this.TxtBuscarRegistros.Size = new System.Drawing.Size(129, 21);
+            this.TxtBuscarRegistros.TabIndex = 67;
+            this.TxtBuscarRegistros.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscarRegistros_KeyUp);
             // 
-            // Nombre
+            // CmbRegistros
             // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Precio_venta
-            // 
-            this.Precio_venta.HeaderText = "Precio Venta";
-            this.Precio_venta.Name = "Precio_venta";
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            // 
-            // Estatus
-            // 
-            this.Estatus.HeaderText = "Estatus";
-            this.Estatus.Name = "Estatus";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(360, 368);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(129, 21);
-            this.textBox8.TabIndex = 67;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.CmbRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbRegistros.FormattingEnabled = true;
+            this.CmbRegistros.Items.AddRange(new object[] {
             "Codigo",
             "Nombre",
             "Precio",
             "Precio_venta",
             "Stock",
             "Estatus"});
-            this.comboBox2.Location = new System.Drawing.Point(222, 366);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 66;
-            this.comboBox2.Text = "Consultar por:";
+            this.CmbRegistros.Location = new System.Drawing.Point(222, 366);
+            this.CmbRegistros.Name = "CmbRegistros";
+            this.CmbRegistros.Size = new System.Drawing.Size(121, 23);
+            this.CmbRegistros.TabIndex = 66;
+            this.CmbRegistros.Text = "Consultar por:";
             // 
-            // button1
+            // BtnLimpiar2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(528, 368);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnLimpiar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiar2.Location = new System.Drawing.Point(528, 368);
+            this.BtnLimpiar2.Name = "BtnLimpiar2";
+            this.BtnLimpiar2.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpiar2.TabIndex = 65;
+            this.BtnLimpiar2.Text = "Limpiar";
+            this.BtnLimpiar2.UseVisualStyleBackColor = true;
+            this.BtnLimpiar2.Click += new System.EventHandler(this.BtnLimpiar2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(473, 226);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Ingresa precio venta";
+            // 
+            // TxtPrecioVenta
+            // 
+            this.TxtPrecioVenta.Location = new System.Drawing.Point(477, 245);
+            this.TxtPrecioVenta.Mask = "99999999";
+            this.TxtPrecioVenta.Name = "TxtPrecioVenta";
+            this.TxtPrecioVenta.Size = new System.Drawing.Size(100, 20);
+            this.TxtPrecioVenta.TabIndex = 69;
+            this.TxtPrecioVenta.ValidatingType = typeof(int);
             // 
             // Registro_productos
             // 
@@ -376,24 +368,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 546);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TxtPrecioVenta);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtBuscarRegistros);
+            this.Controls.Add(this.CmbRegistros);
+            this.Controls.Add(this.BtnLimpiar2);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Dgv2);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.TxtStock);
             this.Controls.Add(this.BtnLimp);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.TxtEstatus);
+            this.Controls.Add(this.TxtPrecio);
+            this.Controls.Add(this.TxtNombre);
+            this.Controls.Add(this.TxtCodigo);
+            this.Controls.Add(this.TxtBuscarProductosC);
+            this.Controls.Add(this.CmbBuscarProductos);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnEditar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Btneliminar);
             this.Controls.Add(this.DgvListadoProductos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -405,7 +398,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListadoProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,30 +414,25 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView DgvListadoProductos;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Btneliminar;
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnLimpiar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox CmbBuscarProductos;
+        private System.Windows.Forms.TextBox TxtBuscarProductosC;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.TextBox TxtPrecio;
+        private System.Windows.Forms.TextBox TxtEstatus;
         private System.Windows.Forms.Button BtnLimp;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TxtStock;
         private System.Windows.Forms.Button BtnMenu;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dgv2;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio_venta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox TxtBuscarRegistros;
+        private System.Windows.Forms.ComboBox CmbRegistros;
+        private System.Windows.Forms.Button BtnLimpiar2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox TxtPrecioVenta;
     }
 }

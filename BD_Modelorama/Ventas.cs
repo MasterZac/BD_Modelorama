@@ -16,5 +16,10 @@ namespace BD_Modelorama
         {
             InitializeComponent();
         }
+
+        private void Ventas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

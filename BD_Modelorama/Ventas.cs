@@ -259,15 +259,90 @@ namespace BD_Modelorama
             int cantidad = Convert.ToInt32(TxtCantidad.Text);
             double precio = Convert.ToDouble(TxtPrecioVenta.Text);
             double Monto = cantidad * precio;
-            Dgv.Rows.Add(TxtCodigoVenta.Text.ToUpper(), TxtCodigo.Text.ToUpper(), TxtCantidad.Value, TxtPrecioVenta.Text, Monto.ToString());
+            Dgv.Rows.Add(TxtCodigoVenta.Text.ToUpper(), TxtCodigo.Text.ToUpper(), TxtNombreP.Text, TxtCantidad.Value, TxtPrecioVenta.Text, Monto.ToString());
             calcularTotal();
             MessageBox.Show("Producto agregado a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             BtnConsultarC.Enabled = false;
             TxtCodigo.Clear();
             TxtNombreP.Clear();
             TxtPrecioVenta.Clear();
+            stocktemp = Convert.ToInt32(TxtStock.Text);
             TxtStock.Clear();
             TxtCantidad.Value = 0;
+        }
+
+        int stocktemp;
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay producto agregados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Dgv.SelectedRows.Count > 0)
+            {
+                TxtCodigo.Text = Dgv.SelectedCells[1].Value.ToString();
+                TxtNombreP.Text = Dgv.SelectedCells[2].Value.ToString();
+                TxtPrecioVenta.Text = Dgv.SelectedCells[4].Value.ToString();
+                TxtStock.Text = stocktemp.ToString();
+                TxtCantidad.Value = Convert.ToInt32(Dgv.SelectedCells[3].Value.ToString());
+
+                foreach (DataGridViewRow remover in Dgv.Rows)
+                {
+                    Dgv.Rows.Remove(remover);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay producto agregados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Dgv.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow remover in Dgv.Rows)
+                {
+                    Dgv.Rows.Remove(remover);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        public void Limpiar()
+        {
+            TxtCodigo.Clear();
+            TxtNombre.Clear();
+            Txtdni.Clear();
+            TxtNombreP.Clear();
+            TxtStock.Clear();
+            TxtPrecioVenta.Clear();
+            TxtCantidad.Value = 0;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count > 0)
+            {
+                Dgv.Rows.Clear();
+            }
+
+            Limpiar();
+            BtnConsultarC.Enabled = true;
+            MessageBox.Show("Venta cancelada");
         }
     }
 }

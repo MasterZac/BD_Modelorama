@@ -71,6 +71,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.Codigo_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -224,7 +225,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(209, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(543, 111);
+            this.groupBox1.Size = new System.Drawing.Size(613, 111);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle cliente";
@@ -290,7 +291,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(209, 164);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(543, 134);
+            this.groupBox2.Size = new System.Drawing.Size(613, 134);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle producto";
@@ -395,13 +396,14 @@
             this.Dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo_venta,
             this.Codigo_producto,
+            this.Nombre,
             this.Cantidad,
             this.Precio,
             this.Monto});
-            this.Dgv.Location = new System.Drawing.Point(209, 334);
+            this.Dgv.Location = new System.Drawing.Point(209, 335);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            this.Dgv.Size = new System.Drawing.Size(543, 103);
+            this.Dgv.Size = new System.Drawing.Size(643, 103);
             this.Dgv.TabIndex = 51;
             // 
             // label8
@@ -451,30 +453,33 @@
             // 
             // BtnEditar
             // 
-            this.BtnEditar.Location = new System.Drawing.Point(760, 333);
+            this.BtnEditar.Location = new System.Drawing.Point(869, 343);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(75, 23);
             this.BtnEditar.TabIndex = 57;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.Location = new System.Drawing.Point(760, 362);
+            this.BtnEliminar.Location = new System.Drawing.Point(869, 372);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminar.TabIndex = 58;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(760, 391);
+            this.BtnCancelar.Location = new System.Drawing.Point(869, 401);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtnCancelar.TabIndex = 59;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // button2
             // 
@@ -494,32 +499,43 @@
             // 
             this.Codigo_venta.HeaderText = "Codigo de venta";
             this.Codigo_venta.Name = "Codigo_venta";
+            this.Codigo_venta.ReadOnly = true;
             // 
             // Codigo_producto
             // 
             this.Codigo_producto.HeaderText = "Codigo de producto";
             this.Codigo_producto.Name = "Codigo_producto";
+            this.Codigo_producto.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio de venta";
             this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // Monto
             // 
             this.Monto.HeaderText = "Monto";
             this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
             // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 505);
+            this.ClientSize = new System.Drawing.Size(956, 505);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.BtnCancelar);
@@ -598,6 +614,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;

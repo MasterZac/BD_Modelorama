@@ -119,10 +119,10 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                cmd = new MySqlCommand("ConsultaProducto", cnn);
+                cmd = new MySqlCommand("ConsultaProductos", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter codigo = new MySqlParameter("ConsultaProductos", cnn);
+                MySqlParameter codigo = new MySqlParameter("_codigo", cnn);
                 codigo.Value = TxtCodigo.Text;
                 cmd.Parameters.Add(codigo);
 
@@ -176,6 +176,98 @@ namespace BD_Modelorama
             form.NombreTrabajador = LabelNombreEmpleado.Text;
             this.Hide();
             form.Show();
+        }
+
+        public bool ProductoAgregado()
+        {
+
+            bool respuesta = false;
+            string Codigo_p = TxtCodigo.Text;
+            if (Dgv.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow fila in Dgv.Rows)
+                {
+                    if (fila.Cells["Codigo_producto"].Value.ToString() == Convert.ToString(Codigo_p))
+                    {
+                        respuesta = true;
+                        break;
+                    }
+                }
+            }
+            return respuesta;
+
+        }
+
+        private void calcularTotal()
+        {
+            double total = 0;
+            try
+            {
+                if (Dgv.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in Dgv.Rows)
+                    {
+                        total += Convert.ToDouble(row.Cells["Monto"].Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            TxtTotal.Text = total.ToString("0.00");
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            if (TxtCodigoVenta.Text == "")
+            {
+                MessageBox.Show("Ingresa el codigo de compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Txtdni.Text == "")
+            {
+                MessageBox.Show("Falta consultar un cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (TxtCodigo.Text == "")
+            {
+                MessageBox.Show("Falta consultar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (TxtCantidad.Value == 0)
+            {
+                MessageBox.Show("Ingresa la cantidad a llevar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            int stock = Convert.ToInt32(TxtStock.Text);
+            if (TxtCantidad.Value > stock)
+            {
+                MessageBox.Show("No hay productos suficientes para la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ProductoAgregado())
+            {
+                MessageBox.Show("El producto ya fue agregado a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int cantidad = Convert.ToInt32(TxtCantidad.Text);
+            double precio = Convert.ToDouble(TxtPrecioVenta.Text);
+            double Monto = cantidad * precio;
+            Dgv.Rows.Add(TxtCodigoVenta.Text.ToUpper(), TxtCodigo.Text.ToUpper(), TxtCantidad.Value, TxtPrecioVenta.Text, Monto.ToString());
+            calcularTotal();
+            MessageBox.Show("Producto agregado a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            BtnConsultarC.Enabled = false;
+            TxtCodigo.Clear();
+            TxtNombreP.Clear();
+            TxtPrecioVenta.Clear();
+            TxtStock.Clear();
+            TxtCantidad.Value = 0;
         }
     }
 }

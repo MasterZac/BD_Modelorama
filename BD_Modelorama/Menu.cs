@@ -144,7 +144,10 @@ namespace BD_Modelorama
 
         private void rEGISTRARVENTAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Ventas form = new Ventas();
+            form.nombreEmpleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            form.Show();
         }
     }
 }

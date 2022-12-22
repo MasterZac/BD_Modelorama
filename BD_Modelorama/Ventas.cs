@@ -22,7 +22,6 @@ namespace BD_Modelorama
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter da;
         MySqlDataReader rd;
-        DataTable table;
 
         public string nombreEmpleado;
 
@@ -40,11 +39,36 @@ namespace BD_Modelorama
         private void Ventas_Load(object sender, EventArgs e)
         {
             LabelNombreEmpleado.Text = nombreEmpleado;
+            ConsultarDni();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             labelFecha.Text = Convert.ToString(DateTime.Now.ToString("G"));
+        }
+        
+        public void ConsultarDni()
+        {
+            try
+            {
+                Conectar();
+                string consultar = "Select Curp From empleado Where Nombre = ('" + LabelNombreEmpleado.Text + "')";
+                cmd = new MySqlCommand(consultar, cnn);
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    labelEmpleado.Text = rd[0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
         }
 
         private void BtnConsultarC_Click(object sender, EventArgs e)
@@ -86,7 +110,72 @@ namespace BD_Modelorama
 
         private void BtnConsultarP_Click(object sender, EventArgs e)
         {
+            if (TxtCodigo.Text == "")
+            {
+                MessageBox.Show("Ingresa el codigo del producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("ConsultaProducto", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter codigo = new MySqlParameter("ConsultaProductos", cnn);
+                codigo.Value = TxtCodigo.Text;
+                cmd.Parameters.Add(codigo);
+
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    string estatus = rd[5].ToString();
+                    if (estatus == "Activo")
+                    {
+                        TxtNombreP.Text = rd[1].ToString();
+                        TxtPrecioVenta.Text = rd[3].ToString();
+                        TxtStock.Text = rd[4].ToString();
+                    }
+                    else if (estatus == "Inactivo")
+                    {
+                        MessageBox.Show("El producto no se encuentra activo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro registros de ese producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        private void BtnLimpiarP_Click(object sender, EventArgs e)
+        {
+            TxtCodigo.Clear();
+            TxtNombreP.Clear();
+            TxtPrecioVenta.Clear();
+            TxtStock.Clear();
+            TxtCodigo.Focus();
+        }
+
+        private void BtnLimpiarC_Click(object sender, EventArgs e)
+        {
+            Txtdni.Clear(); TxtNombre.Clear(); Txtdni.Focus();
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            Menu form = new Menu();
+            form.NombreTrabajador = LabelNombreEmpleado.Text;
+            this.Hide();
+            form.Show();
         }
     }
 }

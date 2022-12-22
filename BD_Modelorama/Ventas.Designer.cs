@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.labelEmpleado = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnMenu = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -66,8 +68,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.labeldni = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.labeldni);
+            this.panel1.Controls.Add(this.labelEmpleado);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BtnMenu);
             this.panel1.Controls.Add(this.linkLabel2);
@@ -92,6 +92,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 505);
             this.panel1.TabIndex = 45;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(7, 6);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(53, 16);
+            this.linkLabel1.TabIndex = 65;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "CURP:";
+            // 
+            // labelEmpleado
+            // 
+            this.labelEmpleado.AutoSize = true;
+            this.labelEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.labelEmpleado.Location = new System.Drawing.Point(12, 35);
+            this.labelEmpleado.Name = "labelEmpleado";
+            this.labelEmpleado.Size = new System.Drawing.Size(41, 13);
+            this.labelEmpleado.TabIndex = 64;
+            this.labelEmpleado.Text = "label7";
             // 
             // button1
             // 
@@ -112,6 +134,7 @@
             this.BtnMenu.TabIndex = 62;
             this.BtnMenu.Text = "Menu";
             this.BtnMenu.UseVisualStyleBackColor = true;
+            this.BtnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // linkLabel2
             // 
@@ -209,6 +232,7 @@
             this.BtnLimpiarC.TabIndex = 52;
             this.BtnLimpiarC.Text = "Limpiar";
             this.BtnLimpiarC.UseVisualStyleBackColor = true;
+            this.BtnLimpiarC.Click += new System.EventHandler(this.BtnLimpiarC_Click);
             // 
             // BtnConsultarC
             // 
@@ -274,6 +298,7 @@
             this.BtnLimpiarP.TabIndex = 53;
             this.BtnLimpiarP.Text = "Limpiar";
             this.BtnLimpiarP.UseVisualStyleBackColor = true;
+            this.BtnLimpiarP.Click += new System.EventHandler(this.BtnLimpiarP_Click);
             // 
             // BtnConsultarP
             // 
@@ -445,28 +470,6 @@
             this.button2.Text = "Ejecutar venta";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(12, 6);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(37, 16);
-            this.linkLabel1.TabIndex = 65;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "DNI:";
-            // 
-            // labeldni
-            // 
-            this.labeldni.AutoSize = true;
-            this.labeldni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeldni.ForeColor = System.Drawing.Color.Black;
-            this.labeldni.Location = new System.Drawing.Point(12, 35);
-            this.labeldni.Name = "labeldni";
-            this.labeldni.Size = new System.Drawing.Size(41, 13);
-            this.labeldni.TabIndex = 64;
-            this.labeldni.Text = "label7";
-            // 
             // timer
             // 
             this.timer.Enabled = true;
@@ -493,6 +496,7 @@
             this.Controls.Add(this.TxtCodigoVenta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Ventas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
@@ -550,7 +554,7 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label labeldni;
+        private System.Windows.Forms.Label labelEmpleado;
         private System.Windows.Forms.Timer timer;
     }
 }

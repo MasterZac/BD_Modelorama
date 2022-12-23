@@ -58,7 +58,7 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    labelEmpleado.Text = rd[0].ToString();
+                    labelCurpEm.Text = rd[0].ToString();
                 }
             }
             catch (Exception ex)
@@ -91,7 +91,16 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    TxtNombre.Text = rd[1].ToString();
+                    string estatus = rd[4].ToString();
+                    if (estatus == "Activo")
+                    {
+                        TxtNombre.Text = rd[1].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente deshabilitado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
                 else
                 {
@@ -233,7 +242,7 @@ namespace BD_Modelorama
                 return;
             }
 
-            if (TxtCodigo.Text == "")
+            if (TxtCodigo.Text == "" || TxtNombreP.Text == "" || TxtPrecioVenta.Text == "" || TxtStock.Text == "")
             {
                 MessageBox.Show("Falta consultar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -285,13 +294,15 @@ namespace BD_Modelorama
                 TxtCodigo.Text = Dgv.SelectedCells[1].Value.ToString();
                 TxtNombreP.Text = Dgv.SelectedCells[2].Value.ToString();
                 TxtPrecioVenta.Text = Dgv.SelectedCells[4].Value.ToString();
-                TxtStock.Text = stocktemp.ToString();
                 TxtCantidad.Value = Convert.ToInt32(Dgv.SelectedCells[3].Value.ToString());
+                CalcularStock();
 
                 foreach (DataGridViewRow remover in Dgv.Rows)
                 {
                     Dgv.Rows.Remove(remover);
                 }
+                TxtCantidad.Focus();
+                calcularTotal();
 
             }
             else
@@ -314,6 +325,7 @@ namespace BD_Modelorama
                 {
                     Dgv.Rows.Remove(remover);
                 }
+                calcularTotal();
             }
             else
             {
@@ -324,6 +336,7 @@ namespace BD_Modelorama
 
         public void Limpiar()
         {
+            TxtCodigoVenta.Clear();
             TxtCodigo.Clear();
             TxtNombre.Clear();
             Txtdni.Clear();
@@ -342,7 +355,111 @@ namespace BD_Modelorama
 
             Limpiar();
             BtnConsultarC.Enabled = true;
+            calcularTotal();
             MessageBox.Show("Venta cancelada");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count == 0)
+            {
+                MessageBox.Show("No se han agregado productos a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("AddVenta", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter codigoventa = new MySqlParameter("_codigo", MySqlDbType.VarChar, 15);
+                codigoventa.Value = TxtCodigoVenta.Text;
+                cmd.Parameters.Add(codigoventa);
+
+                MySqlParameter fecha = new MySqlParameter("_fecha", MySqlDbType.DateTime);
+                fecha.Value = Convert.ToDateTime(DateTime.Now.ToString("G"));
+                cmd.Parameters.Add(fecha);
+
+                MySqlParameter curp = new MySqlParameter("_curp", MySqlDbType.VarChar, 15);
+                curp.Value = labelCurpEm.Text;
+                cmd.Parameters.Add(curp);
+
+                MySqlParameter dni = new MySqlParameter("_dni", MySqlDbType.VarChar, 15);
+                dni.Value = Txtdni.Text;
+                cmd.Parameters.Add(dni);
+
+                MySqlParameter monto = new MySqlParameter("_monto", MySqlDbType.Double);
+                monto.Value = TxtTotal.Text;
+                cmd.Parameters.Add(monto);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("AddAparece", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                foreach (DataGridViewRow enviar in Dgv.Rows)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.Add("_codigo_venta", MySqlDbType.VarChar, 15).Value = Convert.ToString(enviar.Cells["Codigo_venta"].Value);
+                    cmd.Parameters.Add("_codigo_producto", MySqlDbType.VarChar, 15).Value = Convert.ToString(enviar.Cells["Codigo_producto"].Value);
+                    cmd.Parameters.Add("_nombre", MySqlDbType.VarChar, 100).Value = Convert.ToString(enviar.Cells["Nombre"].Value);
+                    cmd.Parameters.Add("_cantidad", MySqlDbType.Int32).Value = Convert.ToInt32(enviar.Cells["Cantidad"].Value);
+                    cmd.Parameters.Add("_precio", MySqlDbType.Double).Value = Convert.ToDouble(enviar.Cells["Precio"].Value);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
+            Dgv.Rows.Clear();
+            Limpiar();
+            MessageBox.Show("Se ha realizado correctamente la venta");
+            BtnConsultarC.Enabled = true;
+            calcularTotal();
+
+        }
+
+        public void CalcularStock()
+        {
+            try
+            {
+                Conectar();
+                string consulta = "Select Stock From productos Where Codigo = ('" + TxtCodigo.Text + "')";
+                cmd = new MySqlCommand(consulta, cnn);
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    TxtStock.Text = rd[0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                Desconectar();
+
+            }
         }
     }
 }

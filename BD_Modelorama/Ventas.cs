@@ -540,6 +540,8 @@ namespace BD_Modelorama
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Corte exitoso");
                 aux = true;
+                TxtID_corte.Clear();
+                
             }
             catch (Exception ex)
             {

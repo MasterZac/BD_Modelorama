@@ -334,9 +334,7 @@ namespace BD_Modelorama
                     TxtNombre.Text = rd[3].ToString();
                     TxtContraseña.Text = rd[4].ToString();
                     TxtEstatus.Text = rd[5].ToString();
-                    DGVEmpleados.Rows.Add(TxtCurp.Text,
-                        TxtNombre.Text, TxtEdad.Text,
-                        CmbPuesto.Text, TxtContraseña.Text, TxtEstatus.Text);
+                    DGVEmpleados.Rows.Add(TxtCurp.Text, TxtContraseña.Text, TxtNombre.Text, TxtEdad.Text, CmbPuesto.Text, TxtEstatus.Text);
                 }
                 else
                 {

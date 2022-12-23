@@ -90,12 +90,15 @@ namespace BD_Modelorama
             LabelNombreEmpleado.Text = string.Format("{0}", NombreTrabajador);
             f_i = Convert.ToString(DateTime.Now.ToString("G"));
             ConsultaPuestoEmpleado();
-            if (LabelPuesto.Text == "Vendedor")
+            if (LabelPuesto.Text == "Cajero")
             {
                 EMPLEADOSToolStripMenuItem.Enabled = false;
                 CLIENTESToolStripMenuItem.Enabled = false;
                 PROVEEDORToolStripMenuItem.Enabled = false;
                 PRODUCTOSToolStripMenuItem.Enabled = false;
+                HistorialVentas.Enabled = false;
+                cORTESDECAJAToolStripMenuItem.Enabled = false;
+                
 
             }
 

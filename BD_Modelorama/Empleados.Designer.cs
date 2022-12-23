@@ -292,7 +292,7 @@
             this.CmbPuesto.Items.AddRange(new object[] {
             "SuperAdmin",
             "Administrador ",
-            "Vendedor"});
+            "Cajero"});
             this.CmbPuesto.Location = new System.Drawing.Point(131, 180);
             this.CmbPuesto.Name = "CmbPuesto";
             this.CmbPuesto.Size = new System.Drawing.Size(143, 24);

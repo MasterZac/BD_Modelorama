@@ -30,24 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelFecha = new System.Windows.Forms.Label();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnRegresar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.LabelNombreEmpleado = new System.Windows.Forms.Label();
-            this.LabelPuesto = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.tabLOG = new System.Windows.Forms.TabControl();
-            this.LOG = new System.Windows.Forms.TabPage();
-            this.DgvLOG = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.comboBoxLOG = new System.Windows.Forms.ComboBox();
-            this.BtnLimpiar2 = new System.Windows.Forms.Button();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.labelcurp = new System.Windows.Forms.Label();
             this.EMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRODEEMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,15 +47,27 @@
             this.lISTADEENTRADASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VENTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRARVENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vENTASREALIZADASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HistorialVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.cORTESDECAJAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LabelNombreEmpleado = new System.Windows.Forms.Label();
+            this.LabelPuesto = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.tabLOG = new System.Windows.Forms.TabControl();
+            this.LOG = new System.Windows.Forms.TabPage();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.comboBoxLOG = new System.Windows.Forms.ComboBox();
+            this.BtnLimpiar2 = new System.Windows.Forms.Button();
+            this.DgvLOG = new System.Windows.Forms.DataGridView();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.labelcurp = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tabLOG.SuspendLayout();
             this.LOG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +83,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(597, 85);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BD_Modelorama.Properties.Resources.icons8_tienda_en_línea_80;
+            this.pictureBox1.Location = new System.Drawing.Point(153, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
             // labelFecha
             // 
@@ -139,150 +149,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(597, 29);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // LabelNombreEmpleado
-            // 
-            this.LabelNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelNombreEmpleado.AutoSize = true;
-            this.LabelNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNombreEmpleado.Location = new System.Drawing.Point(293, 340);
-            this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
-            this.LabelNombreEmpleado.Size = new System.Drawing.Size(119, 16);
-            this.LabelNombreEmpleado.TabIndex = 5;
-            this.LabelNombreEmpleado.Text = "NombreEmpleado";
-            // 
-            // LabelPuesto
-            // 
-            this.LabelPuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelPuesto.AutoSize = true;
-            this.LabelPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPuesto.Location = new System.Drawing.Point(510, 340);
-            this.LabelPuesto.Name = "LabelPuesto";
-            this.LabelPuesto.Size = new System.Drawing.Size(44, 16);
-            this.LabelPuesto.TabIndex = 7;
-            this.LabelPuesto.Text = "label4";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(175, 337);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(112, 16);
-            this.linkLabel2.TabIndex = 25;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Empleado activo:";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(452, 340);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(52, 16);
-            this.linkLabel1.TabIndex = 26;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Puesto:";
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // tabLOG
-            // 
-            this.tabLOG.Controls.Add(this.LOG);
-            this.tabLOG.Location = new System.Drawing.Point(39, 126);
-            this.tabLOG.Name = "tabLOG";
-            this.tabLOG.SelectedIndex = 0;
-            this.tabLOG.Size = new System.Drawing.Size(494, 197);
-            this.tabLOG.TabIndex = 27;
-            this.tabLOG.Visible = false;
-            // 
-            // LOG
-            // 
-            this.LOG.Controls.Add(this.TxtBuscar);
-            this.LOG.Controls.Add(this.comboBoxLOG);
-            this.LOG.Controls.Add(this.BtnLimpiar2);
-            this.LOG.Controls.Add(this.DgvLOG);
-            this.LOG.Location = new System.Drawing.Point(4, 22);
-            this.LOG.Name = "LOG";
-            this.LOG.Padding = new System.Windows.Forms.Padding(3);
-            this.LOG.Size = new System.Drawing.Size(486, 171);
-            this.LOG.TabIndex = 0;
-            this.LOG.Text = "LOG";
-            this.LOG.UseVisualStyleBackColor = true;
-            // 
-            // DgvLOG
-            // 
-            this.DgvLOG.AllowUserToAddRows = false;
-            this.DgvLOG.AllowUserToDeleteRows = false;
-            this.DgvLOG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvLOG.Location = new System.Drawing.Point(6, 46);
-            this.DgvLOG.Name = "DgvLOG";
-            this.DgvLOG.ReadOnly = true;
-            this.DgvLOG.Size = new System.Drawing.Size(464, 119);
-            this.DgvLOG.TabIndex = 0;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBuscar.Location = new System.Drawing.Point(194, 19);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(129, 21);
-            this.TxtBuscar.TabIndex = 151;
-            this.TxtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyUp);
-            // 
-            // comboBoxLOG
-            // 
-            this.comboBoxLOG.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxLOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxLOG.ForeColor = System.Drawing.Color.Teal;
-            this.comboBoxLOG.FormattingEnabled = true;
-            this.comboBoxLOG.Items.AddRange(new object[] {
-            "ID",
-            "Curp_empleado"});
-            this.comboBoxLOG.Location = new System.Drawing.Point(56, 17);
-            this.comboBoxLOG.Name = "comboBoxLOG";
-            this.comboBoxLOG.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxLOG.TabIndex = 150;
-            this.comboBoxLOG.Text = "Consultar por:";
-            // 
-            // BtnLimpiar2
-            // 
-            this.BtnLimpiar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiar2.Location = new System.Drawing.Point(362, 19);
-            this.BtnLimpiar2.Name = "BtnLimpiar2";
-            this.BtnLimpiar2.Size = new System.Drawing.Size(75, 23);
-            this.BtnLimpiar2.TabIndex = 149;
-            this.BtnLimpiar2.Text = "Limpiar";
-            this.BtnLimpiar2.UseVisualStyleBackColor = true;
-            this.BtnLimpiar2.Click += new System.EventHandler(this.BtnLimpiar2_Click);
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(12, 337);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(48, 16);
-            this.linkLabel3.TabIndex = 29;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "CURP:";
-            // 
-            // labelcurp
-            // 
-            this.labelcurp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelcurp.AutoSize = true;
-            this.labelcurp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcurp.Location = new System.Drawing.Point(70, 337);
-            this.labelcurp.Name = "labelcurp";
-            this.labelcurp.Size = new System.Drawing.Size(44, 16);
-            this.labelcurp.TabIndex = 28;
-            this.labelcurp.Text = "label4";
             // 
             // EMPLEADOSToolStripMenuItem
             // 
@@ -361,7 +227,7 @@
             // 
             this.VENTASToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rEGISTRARVENTAToolStripMenuItem,
-            this.vENTASREALIZADASToolStripMenuItem,
+            this.HistorialVentas,
             this.cORTESDECAJAToolStripMenuItem});
             this.VENTASToolStripMenuItem.Image = global::BD_Modelorama.Properties.Resources.icons8_mejoras_económicas_100;
             this.VENTASToolStripMenuItem.Name = "VENTASToolStripMenuItem";
@@ -375,12 +241,13 @@
             this.rEGISTRARVENTAToolStripMenuItem.Text = "REGISTRAR VENTA";
             this.rEGISTRARVENTAToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARVENTAToolStripMenuItem_Click);
             // 
-            // vENTASREALIZADASToolStripMenuItem
+            // HistorialVentas
             // 
-            this.vENTASREALIZADASToolStripMenuItem.Name = "vENTASREALIZADASToolStripMenuItem";
-            this.vENTASREALIZADASToolStripMenuItem.Size = new System.Drawing.Size(326, 26);
-            this.vENTASREALIZADASToolStripMenuItem.Text = "HISTORIAL VENTAS Y PRODUCTOS";
-            this.vENTASREALIZADASToolStripMenuItem.Click += new System.EventHandler(this.vENTASREALIZADASToolStripMenuItem_Click);
+            this.HistorialVentas.AccessibleName = "r";
+            this.HistorialVentas.Name = "HistorialVentas";
+            this.HistorialVentas.Size = new System.Drawing.Size(326, 26);
+            this.HistorialVentas.Text = "HISTORIAL VENTAS Y PRODUCTOS";
+            this.HistorialVentas.Click += new System.EventHandler(this.vENTASREALIZADASToolStripMenuItem_Click);
             // 
             // cORTESDECAJAToolStripMenuItem
             // 
@@ -389,15 +256,149 @@
             this.cORTESDECAJAToolStripMenuItem.Text = "CORTES DE CAJA";
             this.cORTESDECAJAToolStripMenuItem.Click += new System.EventHandler(this.cORTESDECAJAToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // LabelNombreEmpleado
             // 
-            this.pictureBox1.Image = global::BD_Modelorama.Properties.Resources.icons8_tienda_en_línea_80;
-            this.pictureBox1.Location = new System.Drawing.Point(153, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
+            this.LabelNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelNombreEmpleado.AutoSize = true;
+            this.LabelNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(293, 340);
+            this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
+            this.LabelNombreEmpleado.Size = new System.Drawing.Size(119, 16);
+            this.LabelNombreEmpleado.TabIndex = 5;
+            this.LabelNombreEmpleado.Text = "NombreEmpleado";
+            // 
+            // LabelPuesto
+            // 
+            this.LabelPuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelPuesto.AutoSize = true;
+            this.LabelPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelPuesto.Location = new System.Drawing.Point(510, 340);
+            this.LabelPuesto.Name = "LabelPuesto";
+            this.LabelPuesto.Size = new System.Drawing.Size(44, 16);
+            this.LabelPuesto.TabIndex = 7;
+            this.LabelPuesto.Text = "label4";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(175, 337);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(112, 16);
+            this.linkLabel2.TabIndex = 25;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Empleado activo:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(452, 340);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(52, 16);
+            this.linkLabel1.TabIndex = 26;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Puesto:";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // tabLOG
+            // 
+            this.tabLOG.Controls.Add(this.LOG);
+            this.tabLOG.Location = new System.Drawing.Point(39, 126);
+            this.tabLOG.Name = "tabLOG";
+            this.tabLOG.SelectedIndex = 0;
+            this.tabLOG.Size = new System.Drawing.Size(494, 197);
+            this.tabLOG.TabIndex = 27;
+            this.tabLOG.Visible = false;
+            // 
+            // LOG
+            // 
+            this.LOG.Controls.Add(this.TxtBuscar);
+            this.LOG.Controls.Add(this.comboBoxLOG);
+            this.LOG.Controls.Add(this.BtnLimpiar2);
+            this.LOG.Controls.Add(this.DgvLOG);
+            this.LOG.Location = new System.Drawing.Point(4, 22);
+            this.LOG.Name = "LOG";
+            this.LOG.Padding = new System.Windows.Forms.Padding(3);
+            this.LOG.Size = new System.Drawing.Size(486, 171);
+            this.LOG.TabIndex = 0;
+            this.LOG.Text = "LOG";
+            this.LOG.UseVisualStyleBackColor = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBuscar.Location = new System.Drawing.Point(194, 19);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(129, 21);
+            this.TxtBuscar.TabIndex = 151;
+            this.TxtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyUp);
+            // 
+            // comboBoxLOG
+            // 
+            this.comboBoxLOG.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxLOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxLOG.ForeColor = System.Drawing.Color.Teal;
+            this.comboBoxLOG.FormattingEnabled = true;
+            this.comboBoxLOG.Items.AddRange(new object[] {
+            "ID",
+            "Curp_empleado"});
+            this.comboBoxLOG.Location = new System.Drawing.Point(56, 17);
+            this.comboBoxLOG.Name = "comboBoxLOG";
+            this.comboBoxLOG.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxLOG.TabIndex = 150;
+            this.comboBoxLOG.Text = "Consultar por:";
+            // 
+            // BtnLimpiar2
+            // 
+            this.BtnLimpiar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiar2.Location = new System.Drawing.Point(362, 19);
+            this.BtnLimpiar2.Name = "BtnLimpiar2";
+            this.BtnLimpiar2.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpiar2.TabIndex = 149;
+            this.BtnLimpiar2.Text = "Limpiar";
+            this.BtnLimpiar2.UseVisualStyleBackColor = true;
+            this.BtnLimpiar2.Click += new System.EventHandler(this.BtnLimpiar2_Click);
+            // 
+            // DgvLOG
+            // 
+            this.DgvLOG.AllowUserToAddRows = false;
+            this.DgvLOG.AllowUserToDeleteRows = false;
+            this.DgvLOG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvLOG.Location = new System.Drawing.Point(6, 46);
+            this.DgvLOG.Name = "DgvLOG";
+            this.DgvLOG.ReadOnly = true;
+            this.DgvLOG.Size = new System.Drawing.Size(464, 119);
+            this.DgvLOG.TabIndex = 0;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.Location = new System.Drawing.Point(12, 337);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(48, 16);
+            this.linkLabel3.TabIndex = 29;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "CURP:";
+            // 
+            // labelcurp
+            // 
+            this.labelcurp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelcurp.AutoSize = true;
+            this.labelcurp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcurp.Location = new System.Drawing.Point(70, 337);
+            this.labelcurp.Name = "labelcurp";
+            this.labelcurp.Size = new System.Drawing.Size(44, 16);
+            this.labelcurp.TabIndex = 28;
+            this.labelcurp.Text = "label4";
             // 
             // Menu
             // 
@@ -422,13 +423,13 @@
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabLOG.ResumeLayout(false);
             this.LOG.ResumeLayout(false);
             this.LOG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,7 +457,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripMenuItem lISTADEENTRADASToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARVENTAToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vENTASREALIZADASToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HistorialVentas;
         private System.Windows.Forms.ToolStripMenuItem cORTESDECAJAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRODEEMPLEADOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGToolStripMenuItem;

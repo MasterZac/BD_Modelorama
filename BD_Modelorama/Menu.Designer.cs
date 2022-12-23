@@ -59,6 +59,8 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CmbEntradas = new System.Windows.Forms.ComboBox();
             this.BtnLimpiar2 = new System.Windows.Forms.Button();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.labelcurp = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabLOG.SuspendLayout();
@@ -238,7 +240,7 @@
             this.LabelNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelNombreEmpleado.AutoSize = true;
             this.LabelNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNombreEmpleado.Location = new System.Drawing.Point(130, 311);
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(293, 311);
             this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
             this.LabelNombreEmpleado.Size = new System.Drawing.Size(119, 16);
             this.LabelNombreEmpleado.TabIndex = 5;
@@ -249,7 +251,7 @@
             this.LabelPuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelPuesto.AutoSize = true;
             this.LabelPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPuesto.Location = new System.Drawing.Point(347, 311);
+            this.LabelPuesto.Location = new System.Drawing.Point(510, 311);
             this.LabelPuesto.Name = "LabelPuesto";
             this.LabelPuesto.Size = new System.Drawing.Size(44, 16);
             this.LabelPuesto.TabIndex = 7;
@@ -260,7 +262,7 @@
             this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(12, 308);
+            this.linkLabel2.Location = new System.Drawing.Point(175, 308);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(112, 16);
             this.linkLabel2.TabIndex = 25;
@@ -272,7 +274,7 @@
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(289, 311);
+            this.linkLabel1.Location = new System.Drawing.Point(452, 311);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 16);
             this.linkLabel1.TabIndex = 26;
@@ -354,12 +356,37 @@
             this.BtnLimpiar2.Text = "Limpiar";
             this.BtnLimpiar2.UseVisualStyleBackColor = true;
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.Location = new System.Drawing.Point(12, 308);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(48, 16);
+            this.linkLabel3.TabIndex = 29;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "CURP:";
+            // 
+            // labelcurp
+            // 
+            this.labelcurp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelcurp.AutoSize = true;
+            this.labelcurp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcurp.Location = new System.Drawing.Point(70, 308);
+            this.labelcurp.Name = "labelcurp";
+            this.labelcurp.Size = new System.Drawing.Size(44, 16);
+            this.labelcurp.TabIndex = 28;
+            this.labelcurp.Text = "label4";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 333);
             this.ControlBox = false;
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.labelcurp);
             this.Controls.Add(this.tabLOG);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
@@ -418,6 +445,8 @@
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.ComboBox CmbEntradas;
         private System.Windows.Forms.Button BtnLimpiar2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label labelcurp;
     }
 }
 

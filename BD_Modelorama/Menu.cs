@@ -109,6 +109,24 @@ namespace BD_Modelorama
         {
             f_s = Convert.ToString(DateTime.Now.ToString("G"));
 
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("AddLOG", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter curp = new MySqlParameter("_curp", MySqlDbType.VarChar, 15);
+                curp.Value = 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+
 
             LOGIN x = new LOGIN();
             this.Hide();
@@ -178,7 +196,10 @@ namespace BD_Modelorama
                 cmd = new MySqlCommand(Consultar, cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                
+                da = new MySqlDataAdapter(cmd);
+                table = new DataTable();
+                da.Fill(table);
+                DgvLOG.DataSource = table;  
             }
             catch (Exception ex )
             {

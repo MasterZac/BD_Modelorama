@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnMenu = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -38,6 +39,7 @@
             this.comboBoxcorte = new System.Windows.Forms.ComboBox();
             this.BtnLimpiar2 = new System.Windows.Forms.Button();
             this.Dgv = new System.Windows.Forms.DataGridView();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
@@ -159,6 +161,11 @@
             this.Dgv.Size = new System.Drawing.Size(524, 138);
             this.Dgv.TabIndex = 155;
             // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Cortes_de_caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +201,6 @@
         private System.Windows.Forms.ComboBox comboBoxcorte;
         private System.Windows.Forms.Button BtnLimpiar2;
         private System.Windows.Forms.DataGridView Dgv;
+        private System.Windows.Forms.Timer timer;
     }
 }

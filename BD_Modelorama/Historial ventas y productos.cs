@@ -177,5 +177,10 @@ namespace BD_Modelorama
             TxtBuscarAparece.Clear();
             CargarVentas();
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            labelFecha.Text = Convert.ToString(DateTime.Now.ToString("G"));
+        }
     }
 }

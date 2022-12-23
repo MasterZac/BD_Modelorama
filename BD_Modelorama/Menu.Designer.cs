@@ -61,16 +61,19 @@
             this.BtnLimpiar2 = new System.Windows.Forms.Button();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.labelcurp = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabLOG.SuspendLayout();
             this.LOG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.labelFecha);
             this.panel1.Controls.Add(this.BtnExit);
             this.panel1.Controls.Add(this.BtnRegresar);
@@ -78,13 +81,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 67);
+            this.panel1.Size = new System.Drawing.Size(597, 85);
             this.panel1.TabIndex = 0;
             // 
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
-            this.labelFecha.Location = new System.Drawing.Point(186, 54);
+            this.labelFecha.Location = new System.Drawing.Point(186, 72);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(35, 13);
             this.labelFecha.TabIndex = 27;
@@ -131,7 +134,7 @@
             this.PROVEEDORToolStripMenuItem,
             this.PRODUCTOSToolStripMenuItem,
             this.VENTASToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 67);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 85);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(597, 28);
             this.menuStrip1.TabIndex = 3;
@@ -381,6 +384,16 @@
             this.labelcurp.TabIndex = 28;
             this.labelcurp.Text = "label4";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BD_Modelorama.Properties.Resources.icons8_tienda_en_línea_80;
+            this.pictureBox1.Location = new System.Drawing.Point(153, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +423,7 @@
             this.LOG.ResumeLayout(false);
             this.LOG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,6 +463,7 @@
         private System.Windows.Forms.Button BtnLimpiar2;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Label labelcurp;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

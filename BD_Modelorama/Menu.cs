@@ -276,5 +276,21 @@ namespace BD_Modelorama
             TxtBuscar.Clear();
             CargarLOG();
         }
+
+        private void vENTASREALIZADASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Historial_ventas_y_productos form = new Historial_ventas_y_productos();
+            form.empleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            form.Show();
+        }
+
+        private void cORTESDECAJAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cortes_de_caja form = new Cortes_de_caja();
+            form.empleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            form.Show();
+        }
     }
 }

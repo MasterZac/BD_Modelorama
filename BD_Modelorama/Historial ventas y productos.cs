@@ -51,7 +51,7 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                string consultar = "Select * From ventas";
+                string consultar = "Select * From venta";
                 cmd = new MySqlCommand(consultar, cnn);
                 cmd.CommandType = CommandType.Text;
 
@@ -94,10 +94,87 @@ namespace BD_Modelorama
             }
         }
 
+        public void ConsultarVentas()
+        {
+            try
+            {
+                Conectar();
+                string Consultar = "Select * From venta Where (" + comboBoxVentas.Text + ") Like ('" + TxtBuscar.Text + "%')";
+                cmd = new MySqlCommand(Consultar, cnn);
+                cmd.CommandType = CommandType.Text;
+                table = new DataTable();
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(table);
+                DgvVentas.DataSource = table;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        public void ConsultarAparece()
+        {
+            try
+            {
+                Conectar();
+                string Consultar = "Select * From aparece Where (" + comboBoxAparece.Text + ") Like ('" + TxtBuscarAparece.Text + "%')";
+                cmd = new MySqlCommand(Consultar, cnn);
+                cmd.CommandType = CommandType.Text;
+                table = new DataTable();
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(table);
+                DgvAparece.DataSource = table;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         private void Historial_ventas_y_productos_Load(object sender, EventArgs e)
         {
             LabelNombreEmpleado.Text = empleado;
             CargarVentas();
+            CargarAparece();
+        }
+
+        private void TxtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (comboBoxVentas.SelectedIndex < 0)
+            {
+                MessageBox.Show("Elige por que quiere consultar");
+            }
+            else
+            {
+                ConsultarVentas();
+            }
+        }
+
+        private void TxtBuscarAparece_KeyUp(object sender, KeyEventArgs e)
+        {
+            ConsultarAparece();
+        }
+
+        private void BtnLimpiar2_Click(object sender, EventArgs e)
+        {
+            TxtBuscar.Clear();
+            CargarVentas();
+        }
+
+        private void BtnLimpiarAparece_Click(object sender, EventArgs e)
+        {
+            TxtBuscarAparece.Clear();
             CargarVentas();
         }
     }

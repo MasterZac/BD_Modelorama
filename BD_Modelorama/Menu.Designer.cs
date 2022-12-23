@@ -228,12 +228,14 @@
             this.vENTASREALIZADASToolStripMenuItem.Name = "vENTASREALIZADASToolStripMenuItem";
             this.vENTASREALIZADASToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
             this.vENTASREALIZADASToolStripMenuItem.Text = "HISTORIAL VENTAS Y PRODUCTOS";
+            this.vENTASREALIZADASToolStripMenuItem.Click += new System.EventHandler(this.vENTASREALIZADASToolStripMenuItem_Click);
             // 
             // cORTESDECAJAToolStripMenuItem
             // 
             this.cORTESDECAJAToolStripMenuItem.Name = "cORTESDECAJAToolStripMenuItem";
             this.cORTESDECAJAToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
             this.cORTESDECAJAToolStripMenuItem.Text = "CORTES DE CAJA";
+            this.cORTESDECAJAToolStripMenuItem.Click += new System.EventHandler(this.cORTESDECAJAToolStripMenuItem_Click);
             // 
             // LabelNombreEmpleado
             // 

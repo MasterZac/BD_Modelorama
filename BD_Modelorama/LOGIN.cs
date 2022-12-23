@@ -51,12 +51,12 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
+
                     existencia = true;
                 }
                 else
                 {
                     existencia = false;
-                    MessageBox.Show("USUARIO Y/O CONTASEÑA INCORRECTA");
                 }
             }
             catch (Exception ex)

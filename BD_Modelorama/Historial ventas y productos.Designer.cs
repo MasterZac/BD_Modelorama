@@ -37,7 +37,7 @@
             this.DgvVentas = new System.Windows.Forms.DataGridView();
             this.DgvAparece = new System.Windows.Forms.DataGridView();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.comboBoxLOG = new System.Windows.Forms.ComboBox();
+            this.comboBoxVentas = new System.Windows.Forms.ComboBox();
             this.BtnLimpiar2 = new System.Windows.Forms.Button();
             this.TxtBuscarAparece = new System.Windows.Forms.TextBox();
             this.comboBoxAparece = new System.Windows.Forms.ComboBox();
@@ -120,18 +120,24 @@
             // 
             // DgvVentas
             // 
+            this.DgvVentas.AllowUserToAddRows = false;
+            this.DgvVentas.AllowUserToDeleteRows = false;
             this.DgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvVentas.Location = new System.Drawing.Point(257, 74);
+            this.DgvVentas.Location = new System.Drawing.Point(210, 74);
             this.DgvVentas.Name = "DgvVentas";
-            this.DgvVentas.Size = new System.Drawing.Size(477, 138);
+            this.DgvVentas.ReadOnly = true;
+            this.DgvVentas.Size = new System.Drawing.Size(524, 138);
             this.DgvVentas.TabIndex = 47;
             // 
             // DgvAparece
             // 
+            this.DgvAparece.AllowUserToAddRows = false;
+            this.DgvAparece.AllowUserToDeleteRows = false;
             this.DgvAparece.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvAparece.Location = new System.Drawing.Point(257, 302);
+            this.DgvAparece.Location = new System.Drawing.Point(210, 302);
             this.DgvAparece.Name = "DgvAparece";
-            this.DgvAparece.Size = new System.Drawing.Size(477, 138);
+            this.DgvAparece.ReadOnly = true;
+            this.DgvAparece.Size = new System.Drawing.Size(524, 138);
             this.DgvAparece.TabIndex = 48;
             // 
             // TxtBuscar
@@ -141,21 +147,24 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(129, 21);
             this.TxtBuscar.TabIndex = 154;
+            this.TxtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyUp);
             // 
-            // comboBoxLOG
+            // comboBoxVentas
             // 
-            this.comboBoxLOG.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxLOG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxLOG.ForeColor = System.Drawing.Color.Teal;
-            this.comboBoxLOG.FormattingEnabled = true;
-            this.comboBoxLOG.Items.AddRange(new object[] {
-            "ID",
-            "Curp_empleado"});
-            this.comboBoxLOG.Location = new System.Drawing.Point(289, 45);
-            this.comboBoxLOG.Name = "comboBoxLOG";
-            this.comboBoxLOG.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxLOG.TabIndex = 153;
-            this.comboBoxLOG.Text = "Consultar por:";
+            this.comboBoxVentas.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxVentas.ForeColor = System.Drawing.Color.Teal;
+            this.comboBoxVentas.FormattingEnabled = true;
+            this.comboBoxVentas.Items.AddRange(new object[] {
+            "Codigo_venta",
+            "Curp_empleado",
+            "Dni_cliente",
+            "Monto_final"});
+            this.comboBoxVentas.Location = new System.Drawing.Point(289, 45);
+            this.comboBoxVentas.Name = "comboBoxVentas";
+            this.comboBoxVentas.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxVentas.TabIndex = 153;
+            this.comboBoxVentas.Text = "Consultar por:";
             // 
             // BtnLimpiar2
             // 
@@ -166,6 +175,7 @@
             this.BtnLimpiar2.TabIndex = 152;
             this.BtnLimpiar2.Text = "Limpiar";
             this.BtnLimpiar2.UseVisualStyleBackColor = true;
+            this.BtnLimpiar2.Click += new System.EventHandler(this.BtnLimpiar2_Click);
             // 
             // TxtBuscarAparece
             // 
@@ -174,6 +184,7 @@
             this.TxtBuscarAparece.Name = "TxtBuscarAparece";
             this.TxtBuscarAparece.Size = new System.Drawing.Size(129, 21);
             this.TxtBuscarAparece.TabIndex = 157;
+            this.TxtBuscarAparece.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscarAparece_KeyUp);
             // 
             // comboBoxAparece
             // 
@@ -182,8 +193,12 @@
             this.comboBoxAparece.ForeColor = System.Drawing.Color.Teal;
             this.comboBoxAparece.FormattingEnabled = true;
             this.comboBoxAparece.Items.AddRange(new object[] {
-            "ID",
-            "Curp_empleado"});
+            "Codigo_venta",
+            "Codigo_producto",
+            "Nombre",
+            "Cantidad",
+            "Precio",
+            "Monto"});
             this.comboBoxAparece.Location = new System.Drawing.Point(302, 273);
             this.comboBoxAparece.Name = "comboBoxAparece";
             this.comboBoxAparece.Size = new System.Drawing.Size(121, 23);
@@ -199,6 +214,7 @@
             this.BtnLimpiarAparece.TabIndex = 155;
             this.BtnLimpiarAparece.Text = "Limpiar";
             this.BtnLimpiarAparece.UseVisualStyleBackColor = true;
+            this.BtnLimpiarAparece.Click += new System.EventHandler(this.BtnLimpiarAparece_Click);
             // 
             // linkLabel1
             // 
@@ -234,7 +250,7 @@
             this.Controls.Add(this.comboBoxAparece);
             this.Controls.Add(this.BtnLimpiarAparece);
             this.Controls.Add(this.TxtBuscar);
-            this.Controls.Add(this.comboBoxLOG);
+            this.Controls.Add(this.comboBoxVentas);
             this.Controls.Add(this.BtnLimpiar2);
             this.Controls.Add(this.DgvAparece);
             this.Controls.Add(this.DgvVentas);
@@ -263,7 +279,7 @@
         private System.Windows.Forms.DataGridView DgvVentas;
         private System.Windows.Forms.DataGridView DgvAparece;
         private System.Windows.Forms.TextBox TxtBuscar;
-        private System.Windows.Forms.ComboBox comboBoxLOG;
+        private System.Windows.Forms.ComboBox comboBoxVentas;
         private System.Windows.Forms.Button BtnLimpiar2;
         private System.Windows.Forms.TextBox TxtBuscarAparece;
         private System.Windows.Forms.ComboBox comboBoxAparece;

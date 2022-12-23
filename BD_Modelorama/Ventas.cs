@@ -389,7 +389,7 @@ namespace BD_Modelorama
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 MySqlParameter codigoventa = new MySqlParameter("_codigo", MySqlDbType.VarChar, 15);
-                codigoventa.Value = TxtCodigoVenta.Text;
+                codigoventa.Value = TxtCodigoVenta.Text.ToUpper();
                 cmd.Parameters.Add(codigoventa);
 
                 MySqlParameter fecha = new MySqlParameter("_fecha", MySqlDbType.DateTime);
@@ -397,11 +397,11 @@ namespace BD_Modelorama
                 cmd.Parameters.Add(fecha);
 
                 MySqlParameter curp = new MySqlParameter("_curp", MySqlDbType.VarChar, 15);
-                curp.Value = labelCurpEm.Text;
+                curp.Value = labelCurpEm.Text.ToUpper();
                 cmd.Parameters.Add(curp);
 
                 MySqlParameter dni = new MySqlParameter("_dni", MySqlDbType.VarChar, 15);
-                dni.Value = Txtdni.Text;
+                dni.Value = Txtdni.Text.ToUpper();
                 cmd.Parameters.Add(dni);
 
                 MySqlParameter monto = new MySqlParameter("_monto", MySqlDbType.Double);

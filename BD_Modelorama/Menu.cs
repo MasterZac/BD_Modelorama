@@ -65,13 +65,14 @@ namespace BD_Modelorama
             try
             {
                 Conectar();
-                string query = "Select Puesto From empleado Where Nombre = ('" + LabelNombreEmpleado.Text + "'); ";
+                string query = "Select Puesto, Curp From empleado Where Nombre = ('" + LabelNombreEmpleado.Text + "'); ";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
                     LabelPuesto.Text = rd[0].ToString();
+                    labelcurp.Text = rd[1].ToString();
                 }
             }
             catch (Exception ex)
@@ -116,7 +117,18 @@ namespace BD_Modelorama
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 MySqlParameter curp = new MySqlParameter("_curp", MySqlDbType.VarChar, 15);
-                curp.Value = 
+                curp.Value = labelcurp.Text;
+                cmd.Parameters.Add(curp);
+
+                MySqlParameter fecha_entrada = new MySqlParameter("_fecha_i", MySqlDbType.DateTime);
+                fecha_entrada.Value = Convert.ToDateTime(f_i);
+                cmd.Parameters.Add(fecha_entrada);
+
+                MySqlParameter fecha_salida = new MySqlParameter("_fecha_s", MySqlDbType.DateTime);
+                fecha_salida.Value = Convert.ToDateTime(f_s);
+                cmd.Parameters.Add(fecha_salida);
+
+                cmd.ExecuteNonQuery();                
             }
             catch (Exception ex)
             {
@@ -187,6 +199,29 @@ namespace BD_Modelorama
             x.Show();
         }
 
+        public void ConsultarLOG()
+        {
+            try
+            {
+                Conectar();
+                string consultar = "Select * From logempleado Where (" + comboBoxLOG.Text + ") Like ('" + TxtBuscar.Text + "')";
+                cmd = new MySqlCommand(consultar, cnn);
+                cmd.CommandType = CommandType.Text;
+                da = new MySqlDataAdapter(cmd);
+                table = new DataTable();
+                da.Fill(table);
+                DgvLOG.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         public void CargarLOG()
         {
             try
@@ -194,7 +229,7 @@ namespace BD_Modelorama
                 Conectar();
                 string Consultar = "Select * From logempleado";
                 cmd = new MySqlCommand(Consultar, cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.Text;
 
                 da = new MySqlDataAdapter(cmd);
                 table = new DataTable();
@@ -220,7 +255,26 @@ namespace BD_Modelorama
             else
             {
                 tabLOG.Visible = true;
+                CargarLOG();
             }
+        }
+
+        private void TxtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (comboBoxLOG.SelectedIndex < 0)
+            {
+                MessageBox.Show("Selecciona por que quieres consultar");
+            }
+            else
+            {
+                ConsultarLOG();
+            }
+        }
+
+        private void BtnLimpiar2_Click(object sender, EventArgs e)
+        {
+            TxtBuscar.Clear();
+            CargarLOG();
         }
     }
 }

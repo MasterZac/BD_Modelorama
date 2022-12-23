@@ -17,9 +17,14 @@ namespace BD_Modelorama
         MySqlConnection cnn = new MySqlConnection();
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataReader rd;
+        MySqlDataAdapter da;
+        DataTable table;
 
         public string NombreTrabajador;
         public string Rol;
+
+        string f_i;
+        string f_s;
 
         public Menu()
         {
@@ -82,6 +87,7 @@ namespace BD_Modelorama
         private void Menu_Load(object sender, EventArgs e)
         {
             LabelNombreEmpleado.Text = string.Format("{0}", NombreTrabajador);
+            f_i = Convert.ToString(DateTime.Now.ToString("G"));
             ConsultaPuestoEmpleado();
             if (LabelPuesto.Text == "Vendedor")
             {
@@ -91,11 +97,19 @@ namespace BD_Modelorama
                 PRODUCTOSToolStripMenuItem.Enabled = false;
 
             }
+
+            if (LabelPuesto.Text == "Administrador")
+            {
+                EMPLEADOSToolStripMenuItem.Enabled = false;
+            }
             
         }
 
         private void BtnRegresar_Click(object sender, EventArgs e)
         {
+            f_s = Convert.ToString(DateTime.Now.ToString("G"));
+
+
             LOGIN x = new LOGIN();
             this.Hide();
             x.Show();
@@ -153,6 +167,39 @@ namespace BD_Modelorama
             x.empleado = LabelNombreEmpleado.Text;
             this.Hide();
             x.Show();
+        }
+
+        public void CargarLOG()
+        {
+            try
+            {
+                Conectar();
+                string Consultar = "Select * From logempleado";
+                cmd = new MySqlCommand(Consultar, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        private void lOGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tabLOG.Visible == true)
+            {
+                tabLOG.Visible = false;
+            }
+            else
+            {
+                tabLOG.Visible = true;
+            }
         }
     }
 }

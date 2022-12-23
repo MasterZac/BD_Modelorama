@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.EMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PROVEEDORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,14 +53,17 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.rEGISTRODEEMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabLOG = new System.Windows.Forms.TabControl();
+            this.LOG = new System.Windows.Forms.TabPage();
+            this.DgvLOG = new System.Windows.Forms.DataGridView();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.CmbEntradas = new System.Windows.Forms.ComboBox();
+            this.BtnLimpiar2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabLOG.SuspendLayout();
+            this.LOG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,6 +144,20 @@
             this.EMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.EMPLEADOSToolStripMenuItem.Text = "EMPLEADOS";
             this.EMPLEADOSToolStripMenuItem.Click += new System.EventHandler(this.EMPLEADOSToolStripMenuItem_Click);
+            // 
+            // rEGISTRODEEMPLEADOSToolStripMenuItem
+            // 
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Name = "rEGISTRODEEMPLEADOSToolStripMenuItem";
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Text = "REGISTRO DE EMPLEADOS";
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRODEEMPLEADOSToolStripMenuItem_Click);
+            // 
+            // lOGToolStripMenuItem
+            // 
+            this.lOGToolStripMenuItem.Name = "lOGToolStripMenuItem";
+            this.lOGToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.lOGToolStripMenuItem.Text = "LOG";
+            this.lOGToolStripMenuItem.Click += new System.EventHandler(this.lOGToolStripMenuItem_Click);
             // 
             // CLIENTESToolStripMenuItem
             // 
@@ -265,48 +284,75 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // rEGISTRODEEMPLEADOSToolStripMenuItem
+            // tabLOG
             // 
-            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Name = "rEGISTRODEEMPLEADOSToolStripMenuItem";
-            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Text = "REGISTRO DE EMPLEADOS";
-            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRODEEMPLEADOSToolStripMenuItem_Click);
+            this.tabLOG.Controls.Add(this.LOG);
+            this.tabLOG.Location = new System.Drawing.Point(40, 113);
+            this.tabLOG.Name = "tabLOG";
+            this.tabLOG.SelectedIndex = 0;
+            this.tabLOG.Size = new System.Drawing.Size(494, 181);
+            this.tabLOG.TabIndex = 27;
             // 
-            // lOGToolStripMenuItem
+            // LOG
             // 
-            this.lOGToolStripMenuItem.Name = "lOGToolStripMenuItem";
-            this.lOGToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.lOGToolStripMenuItem.Text = "LOG";
+            this.LOG.Controls.Add(this.TxtBuscar);
+            this.LOG.Controls.Add(this.CmbEntradas);
+            this.LOG.Controls.Add(this.BtnLimpiar2);
+            this.LOG.Controls.Add(this.DgvLOG);
+            this.LOG.Location = new System.Drawing.Point(4, 22);
+            this.LOG.Name = "LOG";
+            this.LOG.Padding = new System.Windows.Forms.Padding(3);
+            this.LOG.Size = new System.Drawing.Size(486, 155);
+            this.LOG.TabIndex = 0;
+            this.LOG.Text = "LOG";
+            this.LOG.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // DgvLOG
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(40, 125);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(474, 146);
-            this.tabControl1.TabIndex = 27;
+            this.DgvLOG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvLOG.Location = new System.Drawing.Point(6, 46);
+            this.DgvLOG.Name = "DgvLOG";
+            this.DgvLOG.Size = new System.Drawing.Size(464, 103);
+            this.DgvLOG.TabIndex = 0;
             // 
-            // tabPage1
+            // TxtBuscar
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(466, 120);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TxtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBuscar.Location = new System.Drawing.Point(194, 19);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(129, 21);
+            this.TxtBuscar.TabIndex = 151;
             // 
-            // tabPage2
+            // CmbEntradas
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(0, 0);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.CmbEntradas.BackColor = System.Drawing.SystemColors.Window;
+            this.CmbEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbEntradas.ForeColor = System.Drawing.Color.Teal;
+            this.CmbEntradas.FormattingEnabled = true;
+            this.CmbEntradas.Items.AddRange(new object[] {
+            "Codigo_compra",
+            "id_proveedor",
+            "Monto_total",
+            "Codigo_producto",
+            "Nombre",
+            "Cantidad",
+            "Precio_compra",
+            "Monto_compra"});
+            this.CmbEntradas.Location = new System.Drawing.Point(56, 17);
+            this.CmbEntradas.Name = "CmbEntradas";
+            this.CmbEntradas.Size = new System.Drawing.Size(121, 23);
+            this.CmbEntradas.TabIndex = 150;
+            this.CmbEntradas.Text = "Consultar por:";
+            // 
+            // BtnLimpiar2
+            // 
+            this.BtnLimpiar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiar2.Location = new System.Drawing.Point(362, 19);
+            this.BtnLimpiar2.Name = "BtnLimpiar2";
+            this.BtnLimpiar2.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpiar2.TabIndex = 149;
+            this.BtnLimpiar2.Text = "Limpiar";
+            this.BtnLimpiar2.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -314,7 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 333);
             this.ControlBox = false;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabLOG);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelPuesto);
@@ -331,7 +377,10 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabLOG.ResumeLayout(false);
+            this.LOG.ResumeLayout(false);
+            this.LOG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvLOG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,9 +412,12 @@
         private System.Windows.Forms.ToolStripMenuItem cORTESDECAJAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRODEEMPLEADOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabLOG;
+        private System.Windows.Forms.TabPage LOG;
+        private System.Windows.Forms.DataGridView DgvLOG;
+        private System.Windows.Forms.TextBox TxtBuscar;
+        private System.Windows.Forms.ComboBox CmbEntradas;
+        private System.Windows.Forms.Button BtnLimpiar2;
     }
 }
 

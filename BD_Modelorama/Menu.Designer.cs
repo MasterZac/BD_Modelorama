@@ -51,8 +51,14 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,7 +71,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 67);
+            this.panel1.Size = new System.Drawing.Size(597, 67);
             this.panel1.TabIndex = 0;
             // 
             // labelFecha
@@ -120,12 +126,15 @@
             this.VENTASToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 67);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(579, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(597, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // EMPLEADOSToolStripMenuItem
             // 
+            this.EMPLEADOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem,
+            this.lOGToolStripMenuItem});
             this.EMPLEADOSToolStripMenuItem.Name = "EMPLEADOSToolStripMenuItem";
             this.EMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.EMPLEADOSToolStripMenuItem.Text = "EMPLEADOS";
@@ -207,9 +216,10 @@
             // 
             // LabelNombreEmpleado
             // 
+            this.LabelNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelNombreEmpleado.AutoSize = true;
             this.LabelNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNombreEmpleado.Location = new System.Drawing.Point(115, 234);
+            this.LabelNombreEmpleado.Location = new System.Drawing.Point(130, 311);
             this.LabelNombreEmpleado.Name = "LabelNombreEmpleado";
             this.LabelNombreEmpleado.Size = new System.Drawing.Size(119, 16);
             this.LabelNombreEmpleado.TabIndex = 5;
@@ -217,9 +227,10 @@
             // 
             // LabelPuesto
             // 
+            this.LabelPuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelPuesto.AutoSize = true;
             this.LabelPuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPuesto.Location = new System.Drawing.Point(332, 234);
+            this.LabelPuesto.Location = new System.Drawing.Point(347, 311);
             this.LabelPuesto.Name = "LabelPuesto";
             this.LabelPuesto.Size = new System.Drawing.Size(44, 16);
             this.LabelPuesto.TabIndex = 7;
@@ -227,9 +238,10 @@
             // 
             // linkLabel2
             // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(-3, 231);
+            this.linkLabel2.Location = new System.Drawing.Point(12, 308);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(112, 16);
             this.linkLabel2.TabIndex = 25;
@@ -238,9 +250,10 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(274, 234);
+            this.linkLabel1.Location = new System.Drawing.Point(289, 311);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 16);
             this.linkLabel1.TabIndex = 26;
@@ -252,12 +265,56 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // rEGISTRODEEMPLEADOSToolStripMenuItem
+            // 
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Name = "rEGISTRODEEMPLEADOSToolStripMenuItem";
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Text = "REGISTRO DE EMPLEADOS";
+            this.rEGISTRODEEMPLEADOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRODEEMPLEADOSToolStripMenuItem_Click);
+            // 
+            // lOGToolStripMenuItem
+            // 
+            this.lOGToolStripMenuItem.Name = "lOGToolStripMenuItem";
+            this.lOGToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.lOGToolStripMenuItem.Text = "LOG";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(40, 125);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(474, 146);
+            this.tabControl1.TabIndex = 27;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(466, 120);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(0, 0);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 256);
+            this.ClientSize = new System.Drawing.Size(597, 333);
             this.ControlBox = false;
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelPuesto);
@@ -274,6 +331,7 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +361,11 @@
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARVENTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vENTASREALIZADASToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cORTESDECAJAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rEGISTRODEEMPLEADOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lOGToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

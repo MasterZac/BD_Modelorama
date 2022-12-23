@@ -24,6 +24,19 @@ namespace BD_Modelorama
         MySqlDataReader rd;
 
         public string nombreEmpleado;
+        public static int ventas;
+        public static double total_ventas;
+        bool aux = false;
+
+        public void reiniciar()
+        {
+            if (aux == true)
+            {
+                ventas = 0;
+                total_ventas = 0;
+                aux = false;
+            }
+        }
 
         public void Conectar()
         {
@@ -361,6 +374,8 @@ namespace BD_Modelorama
 
         private void button2_Click(object sender, EventArgs e)
         {
+            reiniciar();
+
             if (Dgv.Rows.Count == 0)
             {
                 MessageBox.Show("No se han agregado productos a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -393,6 +408,8 @@ namespace BD_Modelorama
                 monto.Value = TxtTotal.Text;
                 cmd.Parameters.Add(monto);
                 cmd.ExecuteNonQuery();
+                ventas++;
+                total_ventas += Convert.ToDouble(TxtTotal.Text);
             }
             catch (Exception ex)
             {
@@ -459,6 +476,102 @@ namespace BD_Modelorama
             {
                 Desconectar();
 
+            }
+        }
+
+        private void BtnCorte_Click(object sender, EventArgs e)
+        {
+            if (Dgv.Rows.Count > 0)
+            {
+                MessageBox.Show("Para hacer corte de caja primero termina la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (tabControl1.Visible == false)
+            {
+                reiniciar();
+                tabControl1.Visible = true;
+                TxtFecha_corte.Text = Convert.ToString(DateTime.Now.ToString("G"));
+                LabelVentas.Text = ventas.ToString();
+                labelTotal.Text = total_ventas.ToString();
+            }
+            else
+            {
+                tabControl1.Visible = false;
+            }
+        }
+
+        private void BtnTerminarCorte_Click(object sender, EventArgs e)
+        {
+            tabControl1.Visible = false;
+
+            if (TxtID_corte.Text == "")
+            {
+                MessageBox.Show("Ingresa el id del corte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                Conectar();
+                cmd = new MySqlCommand("AddCorte", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter ID = new MySqlParameter("_id", MySqlDbType.VarChar, 10);
+                ID.Value = TxtID_corte.Text;
+                cmd.Parameters.Add(ID);
+
+                MySqlParameter curp = new MySqlParameter("_curp", MySqlDbType.VarChar, 15);
+                curp.Value = labelCurpEm.Text.ToUpper();
+                cmd.Parameters.Add(curp);
+                
+                MySqlParameter fecha = new MySqlParameter("_fecha", MySqlDbType.DateTime);
+                fecha.Value = Convert.ToDateTime(TxtFecha_corte.Text);
+                cmd.Parameters.Add(fecha);
+
+                MySqlParameter ventas = new MySqlParameter("_ventas", MySqlDbType.Int32);
+                ventas.Value = LabelVentas.Text;
+                cmd.Parameters.Add(ventas);
+
+                MySqlParameter Total = new MySqlParameter("_total", MySqlDbType.Double);
+                Total.Value = labelTotal.Text;
+                cmd.Parameters.Add(Total);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Corte exitoso");
+                aux = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        private void BtnNoCorte_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.Visible == true)
+            {
+                tabControl1.Visible = false;
+                MessageBox.Show("Corte de caja cancelado");
+            }
+        }
+
+        private void TxtID_corte_KeyUp(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void TxtID_corte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
             }
         }
     }

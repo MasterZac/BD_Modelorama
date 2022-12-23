@@ -47,10 +47,7 @@ namespace BD_Modelorama
 
         private void EMPLEADOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Empleados x = new Empleados();
-            x.empleado = LabelNombreEmpleado.Text;
-            this.Hide();
-            x.Show();
+           
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -148,6 +145,14 @@ namespace BD_Modelorama
             form.nombreEmpleado = LabelNombreEmpleado.Text;
             this.Hide();
             form.Show();
+        }
+
+        private void rEGISTRODEEMPLEADOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados x = new Empleados();
+            x.empleado = LabelNombreEmpleado.Text;
+            this.Hide();
+            x.Show();
         }
     }
 }

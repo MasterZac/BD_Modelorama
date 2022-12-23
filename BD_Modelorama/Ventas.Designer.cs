@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.labelCurpEm = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnCorte = new System.Windows.Forms.Button();
             this.BtnMenu = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.labelFecha = new System.Windows.Forms.Label();
@@ -75,11 +75,28 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnEjecutarVenta = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnNoCorte = new System.Windows.Forms.Button();
+            this.BtnTerminarCorte = new System.Windows.Forms.Button();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.LabelVentas = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TxtFecha_corte = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtID_corte = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,7 +104,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.labelCurpEm);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BtnCorte);
             this.panel1.Controls.Add(this.BtnMenu);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.labelFecha);
@@ -121,15 +138,16 @@
             this.labelCurpEm.TabIndex = 64;
             this.labelCurpEm.Text = "label7";
             // 
-            // button1
+            // BtnCorte
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 39);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Corte de caja";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnCorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCorte.Location = new System.Drawing.Point(6, 271);
+            this.BtnCorte.Name = "BtnCorte";
+            this.BtnCorte.Size = new System.Drawing.Size(158, 39);
+            this.BtnCorte.TabIndex = 63;
+            this.BtnCorte.Text = "Corte de caja";
+            this.BtnCorte.UseVisualStyleBackColor = true;
+            this.BtnCorte.Click += new System.EventHandler(this.BtnCorte_Click);
             // 
             // BtnMenu
             // 
@@ -533,12 +551,166 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage);
+            this.tabControl1.Location = new System.Drawing.Point(189, 6);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(767, 499);
+            this.tabControl1.TabIndex = 61;
+            this.tabControl1.Visible = false;
+            // 
+            // tabPage
+            // 
+            this.tabPage.BackColor = System.Drawing.Color.Gray;
+            this.tabPage.Controls.Add(this.panel2);
+            this.tabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage.ForeColor = System.Drawing.Color.Teal;
+            this.tabPage.Location = new System.Drawing.Point(4, 22);
+            this.tabPage.Name = "tabPage";
+            this.tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage.Size = new System.Drawing.Size(759, 473);
+            this.tabPage.TabIndex = 0;
+            this.tabPage.Text = "Corte de caja";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Teal;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.BtnNoCorte);
+            this.panel2.Controls.Add(this.BtnTerminarCorte);
+            this.panel2.Controls.Add(this.labelTotal);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.LabelVentas);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.TxtFecha_corte);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.TxtID_corte);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Location = new System.Drawing.Point(188, 43);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(394, 330);
+            this.panel2.TabIndex = 0;
+            // 
+            // BtnNoCorte
+            // 
+            this.BtnNoCorte.ForeColor = System.Drawing.Color.Black;
+            this.BtnNoCorte.Location = new System.Drawing.Point(202, 247);
+            this.BtnNoCorte.Name = "BtnNoCorte";
+            this.BtnNoCorte.Size = new System.Drawing.Size(154, 48);
+            this.BtnNoCorte.TabIndex = 10;
+            this.BtnNoCorte.Text = "Cancelar";
+            this.BtnNoCorte.UseVisualStyleBackColor = true;
+            this.BtnNoCorte.Click += new System.EventHandler(this.BtnNoCorte_Click);
+            // 
+            // BtnTerminarCorte
+            // 
+            this.BtnTerminarCorte.ForeColor = System.Drawing.Color.Black;
+            this.BtnTerminarCorte.Location = new System.Drawing.Point(29, 247);
+            this.BtnTerminarCorte.Name = "BtnTerminarCorte";
+            this.BtnTerminarCorte.Size = new System.Drawing.Size(154, 48);
+            this.BtnTerminarCorte.TabIndex = 9;
+            this.BtnTerminarCorte.Text = "Continuar con el corte";
+            this.BtnTerminarCorte.UseVisualStyleBackColor = true;
+            this.BtnTerminarCorte.Click += new System.EventHandler(this.BtnTerminarCorte_Click);
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.ForeColor = System.Drawing.Color.Black;
+            this.labelTotal.Location = new System.Drawing.Point(140, 190);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(43, 16);
+            this.labelTotal.TabIndex = 8;
+            this.labelTotal.Text = "Total\r\n";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(22, 190);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(109, 16);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Total ventas: $";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(212, 114);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 16);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "ventas en el turno";
+            // 
+            // LabelVentas
+            // 
+            this.LabelVentas.AutoSize = true;
+            this.LabelVentas.ForeColor = System.Drawing.Color.Black;
+            this.LabelVentas.Location = new System.Drawing.Point(140, 114);
+            this.LabelVentas.Name = "LabelVentas";
+            this.LabelVentas.Size = new System.Drawing.Size(55, 16);
+            this.LabelVentas.TabIndex = 5;
+            this.LabelVentas.Text = "Ventas";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(26, 114);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 16);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Se realizaron";
+            // 
+            // TxtFecha_corte
+            // 
+            this.TxtFecha_corte.Location = new System.Drawing.Point(108, 55);
+            this.TxtFecha_corte.Name = "TxtFecha_corte";
+            this.TxtFecha_corte.ReadOnly = true;
+            this.TxtFecha_corte.Size = new System.Drawing.Size(183, 22);
+            this.TxtFecha_corte.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(39, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 16);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Fecha";
+            // 
+            // TxtID_corte
+            // 
+            this.TxtID_corte.Location = new System.Drawing.Point(108, 6);
+            this.TxtID_corte.MaxLength = 10;
+            this.TxtID_corte.Name = "TxtID_corte";
+            this.TxtID_corte.Size = new System.Drawing.Size(131, 22);
+            this.TxtID_corte.TabIndex = 1;
+            this.TxtID_corte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtID_corte_KeyPress);
+            this.TxtID_corte.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtID_corte_KeyUp);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(6, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 16);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "ID de corte";
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 505);
             this.ControlBox = false;
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.BtnEjecutarVenta);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnEliminar);
@@ -567,6 +739,10 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -575,7 +751,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnCorte;
         private System.Windows.Forms.Button BtnMenu;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label labelFecha;
@@ -620,5 +796,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TxtID_corte;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TxtFecha_corte;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LabelVentas;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Button BtnNoCorte;
+        private System.Windows.Forms.Button BtnTerminarCorte;
     }
 }

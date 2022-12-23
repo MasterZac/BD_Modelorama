@@ -177,5 +177,20 @@
   <ItemGroup>
     <None Include="Resources\icons8-tienda-en-línea-80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-antecedentes-grupo-seleccionado-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gestión-de-clientes-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-proveedor-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-paquete-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-mejoras-económicas-100.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

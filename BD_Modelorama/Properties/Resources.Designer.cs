@@ -63,6 +63,56 @@ namespace BD_Modelorama.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_antecedentes_grupo_seleccionado_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-antecedentes-grupo-seleccionado-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_gestión_de_clientes_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-gestión-de-clientes-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mejoras_económicas_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mejoras-económicas-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_paquete_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-paquete-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_proveedor_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-proveedor-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_tienda_en_línea_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-tienda-en-línea-80", resourceCulture);

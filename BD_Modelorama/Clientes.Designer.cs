@@ -206,7 +206,7 @@
             // 
             this.TxtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDireccion.Location = new System.Drawing.Point(85, 145);
-            this.TxtDireccion.MaxLength = 60;
+            this.TxtDireccion.MaxLength = 80;
             this.TxtDireccion.Multiline = true;
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(139, 69);

@@ -61,6 +61,7 @@
             // 
             // BtnMenu
             // 
+            this.BtnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMenu.Location = new System.Drawing.Point(6, 226);
             this.BtnMenu.Name = "BtnMenu";
             this.BtnMenu.Size = new System.Drawing.Size(158, 39);
@@ -115,9 +116,12 @@
             // 
             // Dgv
             // 
+            this.Dgv.AllowUserToAddRows = false;
+            this.Dgv.AllowUserToDeleteRows = false;
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv.Location = new System.Drawing.Point(216, 131);
             this.Dgv.Name = "Dgv";
+            this.Dgv.ReadOnly = true;
             this.Dgv.Size = new System.Drawing.Size(620, 160);
             this.Dgv.TabIndex = 45;
             // 

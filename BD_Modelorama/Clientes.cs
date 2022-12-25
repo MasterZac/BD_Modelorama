@@ -215,19 +215,19 @@ namespace BD_Modelorama
                 cmd = new MySqlCommand("AddCliente", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
+                MySqlParameter dni = new MySqlParameter("pdni", MySqlDbType.VarChar, 15);
                 dni.Value = TxtDni.Text.ToUpper();
                 cmd.Parameters.Add(dni);
 
-                MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                MySqlParameter nombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 50);
                 nombre.Value = TxtNombre.Text.Trim();
                 cmd.Parameters.Add(nombre);
 
-                MySqlParameter nacimiento = new MySqlParameter("nacimiento", MySqlDbType.VarChar, 10);
+                MySqlParameter nacimiento = new MySqlParameter("pnacimiento", MySqlDbType.VarChar, 10);
                 nacimiento.Value = mkdNacimiento.Text;
                 cmd.Parameters.Add(nacimiento);
 
-                MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
+                MySqlParameter direccion = new MySqlParameter("pdireccion", MySqlDbType.VarChar, 100);
                 direccion.Value = TxtDireccion.Text.Trim();
                 cmd.Parameters.Add(direccion);
 
@@ -273,11 +273,11 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("DeleteCliente", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
+                    MySqlParameter dni = new MySqlParameter("pdni", MySqlDbType.VarChar, 15);
                     dni.Value = TxtDni.Text;
                     cmd.Parameters.Add(dni);
 
-                    MySqlParameter estatus = new MySqlParameter("estatus", MySqlDbType.VarChar, 15);
+                    MySqlParameter estatus = new MySqlParameter("pestatus", MySqlDbType.VarChar, 15);
                     estatus.Value = TxtEstatus.Text;
                     cmd.Parameters.Add(estatus);
 
@@ -320,19 +320,19 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("EditaCliente", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter dni = new MySqlParameter("dni", MySqlDbType.VarChar, 15);
+                    MySqlParameter dni = new MySqlParameter("pdni", MySqlDbType.VarChar, 15);
                     dni.Value = TxtDni.Text;
                     cmd.Parameters.Add(dni);
 
-                    MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                    MySqlParameter nombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 50);
                     nombre.Value = TxtNombre.Text;
                     cmd.Parameters.Add(nombre);
 
-                    MySqlParameter nacimiento = new MySqlParameter("nacimiento", MySqlDbType.VarChar, 10);
+                    MySqlParameter nacimiento = new MySqlParameter("pnacimiento", MySqlDbType.VarChar, 10);
                     nacimiento.Value = mkdNacimiento.Text;
                     cmd.Parameters.Add(nacimiento);
 
-                    MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
+                    MySqlParameter direccion = new MySqlParameter("pdireccion", MySqlDbType.VarChar, 100);
                     direccion.Value = TxtDireccion.Text;
                     cmd.Parameters.Add(direccion);
 
@@ -380,7 +380,7 @@ namespace BD_Modelorama
 
         private void TxtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 33) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Caracter no permitido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Handled = true;

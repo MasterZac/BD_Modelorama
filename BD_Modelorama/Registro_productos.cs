@@ -252,23 +252,23 @@ namespace BD_Modelorama
                 cmd = new MySqlCommand("AddProductos", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter codigo = new MySqlParameter("codigo", MySqlDbType.VarChar, 15);
+                MySqlParameter codigo = new MySqlParameter("pcodigo", MySqlDbType.VarChar, 15);
                 codigo.Value = TxtCodigo.Text;
                 cmd.Parameters.Add(codigo);
 
-                MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                MySqlParameter nombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 50);
                 nombre.Value = TxtNombre.Text;
                 cmd.Parameters.Add(nombre);
 
-                MySqlParameter precio = new MySqlParameter("precio", MySqlDbType.Double);
+                MySqlParameter precio = new MySqlParameter("pprecio", MySqlDbType.Double);
                 precio.Value = TxtPrecio.Text;
                 cmd.Parameters.Add(precio);
 
-                MySqlParameter precio_venta = new MySqlParameter("precio_venta", MySqlDbType.Double);
+                MySqlParameter precio_venta = new MySqlParameter("pprecio_venta", MySqlDbType.Double);
                 precio_venta.Value = TxtPrecioVenta.Text;
                 cmd.Parameters.Add(precio_venta);
 
-                MySqlParameter stock = new MySqlParameter("stock", MySqlDbType.Int32);
+                MySqlParameter stock = new MySqlParameter("pstock", MySqlDbType.Int32);
                 stock.Value = TxtStock.Text;
                 cmd.Parameters.Add(stock);
 
@@ -325,11 +325,11 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("EditaProductos", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter codigo = new MySqlParameter("_codigo", MySqlDbType.VarChar, 15);
+                    MySqlParameter codigo = new MySqlParameter("pcodigo", MySqlDbType.VarChar, 15);
                     codigo.Value = TxtCodigo.Text;
                     cmd.Parameters.Add(codigo);
 
-                    MySqlParameter precio_venta = new MySqlParameter("_precio_venta", MySqlDbType.Double);
+                    MySqlParameter precio_venta = new MySqlParameter("pprecio_venta", MySqlDbType.Double);
                     precio_venta.Value = TxtPrecioVenta.Text;
                     cmd.Parameters.Add(precio_venta);
 
@@ -380,11 +380,11 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("DeleteProductos", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter codigo = new MySqlParameter("_codigo", MySqlDbType.VarChar, 15);
+                    MySqlParameter codigo = new MySqlParameter("pcodigo", MySqlDbType.VarChar, 15);
                     codigo.Value = TxtCodigo.Text;
                     cmd.Parameters.Add(codigo);
 
-                    MySqlParameter estatus = new MySqlParameter("_estatus", MySqlDbType.VarChar, 15);
+                    MySqlParameter estatus = new MySqlParameter("pestatus", MySqlDbType.VarChar, 15);
                     estatus.Value = TxtEstatus.Text;
                     cmd.Parameters.Add(estatus);
 

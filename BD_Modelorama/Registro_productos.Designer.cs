@@ -127,6 +127,7 @@
             // 
             // BtnMenu
             // 
+            this.BtnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMenu.Location = new System.Drawing.Point(6, 226);
             this.BtnMenu.Name = "BtnMenu";
             this.BtnMenu.Size = new System.Drawing.Size(158, 39);

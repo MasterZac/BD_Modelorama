@@ -216,7 +216,7 @@
             // TxtDireccion
             // 
             this.TxtDireccion.Location = new System.Drawing.Point(512, 33);
-            this.TxtDireccion.MaxLength = 150;
+            this.TxtDireccion.MaxLength = 100;
             this.TxtDireccion.Multiline = true;
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -302,6 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(761, 454);
             this.ControlBox = false;
             this.Controls.Add(this.BtnSalir);
@@ -314,6 +315,7 @@
             this.Controls.Add(this.LabelNombreEmpleado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Proveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedor";
             this.Load += new System.EventHandler(this.Proveedor_Load);
             this.groupBox1.ResumeLayout(false);

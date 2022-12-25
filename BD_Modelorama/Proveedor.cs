@@ -134,15 +134,15 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("EditaProveedor", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter id = new MySqlParameter("id", MySqlDbType.VarChar, 15);
+                    MySqlParameter id = new MySqlParameter("pid", MySqlDbType.VarChar, 15);
                     id.Value = TxtID.Text;
                     cmd.Parameters.Add(id);
 
-                    MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                    MySqlParameter nombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 50);
                     nombre.Value = TxtNombre.Text;
                     cmd.Parameters.Add(nombre);
 
-                    MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
+                    MySqlParameter direccion = new MySqlParameter("pdireccion", MySqlDbType.VarChar, 100);
                     direccion.Value = TxtDireccion.Text;
                     cmd.Parameters.Add(direccion);
 
@@ -197,15 +197,15 @@ namespace BD_Modelorama
                 cmd = new MySqlCommand("AddProveedor", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlParameter id = new MySqlParameter("id", MySqlDbType.VarChar, 15);
+                MySqlParameter id = new MySqlParameter("pid", MySqlDbType.VarChar, 15);
                 id.Value = TxtID.Text.ToUpper().Trim();
                 cmd.Parameters.Add(id);
 
-                MySqlParameter nombre = new MySqlParameter("nombre", MySqlDbType.VarChar, 50);
+                MySqlParameter nombre = new MySqlParameter("pnombre", MySqlDbType.VarChar, 50);
                 nombre.Value = TxtNombre.Text.Trim();
                 cmd.Parameters.Add(nombre);
 
-                MySqlParameter direccion = new MySqlParameter("direccion", MySqlDbType.VarChar, 100);
+                MySqlParameter direccion = new MySqlParameter("pdireccion", MySqlDbType.VarChar, 100);
                 direccion.Value = TxtDireccion.Text.Trim();
                 cmd.Parameters.Add(direccion);
 
@@ -252,11 +252,11 @@ namespace BD_Modelorama
                     cmd = new MySqlCommand("DeleteProveedor", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    MySqlParameter id = new MySqlParameter("id", MySqlDbType.VarChar, 15);
+                    MySqlParameter id = new MySqlParameter("pid", MySqlDbType.VarChar, 15);
                     id.Value = TxtID.Text;
                     cmd.Parameters.Add(id);
 
-                    MySqlParameter estatus = new MySqlParameter("estatus", MySqlDbType.VarChar, 15);
+                    MySqlParameter estatus = new MySqlParameter("pestatus", MySqlDbType.VarChar, 15);
                     estatus.Value = TxtEstatus.Text;
                     cmd.Parameters.Add(estatus);
 

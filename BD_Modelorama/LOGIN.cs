@@ -118,5 +118,10 @@ namespace BD_Modelorama
         {
             Application.Exit();
         }
+
+        private void LOGIN_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

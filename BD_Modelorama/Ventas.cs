@@ -376,6 +376,12 @@ namespace BD_Modelorama
         {
             reiniciar();
 
+            if (TxtCodigoVenta.Text == "")
+            {
+                MessageBox.Show("Ingresa el codigo de venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (Dgv.Rows.Count == 0)
             {
                 MessageBox.Show("No se han agregado productos a la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

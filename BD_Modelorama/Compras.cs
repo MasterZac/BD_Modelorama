@@ -74,7 +74,16 @@ namespace BD_Modelorama
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    TxtNombreProveedor.Text = rd[1].ToString();
+                    string estatus = rd[3].ToString();
+                    if (estatus == "Activo")
+                    {
+                        TxtNombreProveedor.Text = rd[1].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El proveedor no se encuentra activo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
                 else
                 {
@@ -197,11 +206,18 @@ namespace BD_Modelorama
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (TxtCodigoCompra.Text == "")
+            {
+                MessageBox.Show("Ingrese el codigo de compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (Dgv.Rows.Count == 0)
             {
                 MessageBox.Show("No ha ingresado producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             bool aux = false;
             try
             {
@@ -380,6 +396,13 @@ namespace BD_Modelorama
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void BtnLimpiarP_Click(object sender, EventArgs e)
+        {
+            TxtID.Clear();
+            TxtNombreProveedor.Clear();
+            TxtID.Focus();
         }
     }
 }

@@ -53,6 +53,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Dgv = new System.Windows.Forms.DataGridView();
+            this.Codigo_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.TxtTotalCompra = new System.Windows.Forms.TextBox();
@@ -62,12 +68,6 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnTerminarCompra = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.Codigo_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtPrecioCompra)).BeginInit();
@@ -166,6 +166,7 @@
             this.BtnLimpiarP.TabIndex = 43;
             this.BtnLimpiarP.Text = "Limpiar";
             this.BtnLimpiarP.UseVisualStyleBackColor = true;
+            this.BtnLimpiarP.Click += new System.EventHandler(this.BtnLimpiarP_Click);
             // 
             // BtnConsultarProveedor
             // 
@@ -330,6 +331,43 @@
             this.Dgv.Size = new System.Drawing.Size(669, 134);
             this.Dgv.TabIndex = 43;
             // 
+            // Codigo_compra
+            // 
+            this.Codigo_compra.HeaderText = "Codigo de Compra";
+            this.Codigo_compra.Name = "Codigo_compra";
+            this.Codigo_compra.ReadOnly = true;
+            this.Codigo_compra.Visible = false;
+            // 
+            // Codigo_producto
+            // 
+            this.Codigo_producto.HeaderText = "Codigo de producto";
+            this.Codigo_producto.Name = "Codigo_producto";
+            this.Codigo_producto.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Precio_compra
+            // 
+            this.Precio_compra.HeaderText = "Precio de compra";
+            this.Precio_compra.Name = "Precio_compra";
+            this.Precio_compra.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
@@ -419,43 +457,6 @@
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // Codigo_compra
-            // 
-            this.Codigo_compra.HeaderText = "Codigo de Compra";
-            this.Codigo_compra.Name = "Codigo_compra";
-            this.Codigo_compra.ReadOnly = true;
-            this.Codigo_compra.Visible = false;
-            // 
-            // Codigo_producto
-            // 
-            this.Codigo_producto.HeaderText = "Codigo de producto";
-            this.Codigo_producto.Name = "Codigo_producto";
-            this.Codigo_producto.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Precio_compra
-            // 
-            this.Precio_compra.HeaderText = "Precio de compra";
-            this.Precio_compra.Name = "Precio_compra";
-            this.Precio_compra.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
             // 
             // Compras
             // 

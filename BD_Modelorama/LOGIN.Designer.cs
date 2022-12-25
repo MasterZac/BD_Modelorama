@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 41);
+            this.label1.Location = new System.Drawing.Point(143, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 18);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 84);
+            this.label2.Location = new System.Drawing.Point(134, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 1;
@@ -67,7 +67,7 @@
             // TxtContraseña
             // 
             this.TxtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraseña.Location = new System.Drawing.Point(117, 84);
+            this.TxtContraseña.Location = new System.Drawing.Point(117, 99);
             this.TxtContraseña.Name = "TxtContraseña";
             this.TxtContraseña.Size = new System.Drawing.Size(127, 24);
             this.TxtContraseña.TabIndex = 3;
@@ -75,7 +75,7 @@
             // BtnAcceder
             // 
             this.BtnAcceder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAcceder.Location = new System.Drawing.Point(117, 126);
+            this.BtnAcceder.Location = new System.Drawing.Point(117, 141);
             this.BtnAcceder.Name = "BtnAcceder";
             this.BtnAcceder.Size = new System.Drawing.Size(127, 34);
             this.BtnAcceder.TabIndex = 4;
@@ -98,7 +98,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(356, 191);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnAcceder);
             this.Controls.Add(this.TxtContraseña);
@@ -109,6 +111,7 @@
             this.Name = "LOGIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";
+            this.Load += new System.EventHandler(this.LOGIN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

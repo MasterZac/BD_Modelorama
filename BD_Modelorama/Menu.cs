@@ -98,8 +98,6 @@ namespace BD_Modelorama
                 PRODUCTOSToolStripMenuItem.Enabled = false;
                 HistorialVentas.Enabled = false;
                 cORTESDECAJAToolStripMenuItem.Enabled = false;
-                
-
             }
 
             if (LabelPuesto.Text == "Administrador")

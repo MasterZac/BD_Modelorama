@@ -319,6 +319,7 @@
             // 
             // LOG
             // 
+            this.LOG.BackColor = System.Drawing.Color.Silver;
             this.LOG.Controls.Add(this.TxtBuscar);
             this.LOG.Controls.Add(this.comboBoxLOG);
             this.LOG.Controls.Add(this.BtnLimpiar2);
@@ -329,7 +330,6 @@
             this.LOG.Size = new System.Drawing.Size(486, 171);
             this.LOG.TabIndex = 0;
             this.LOG.Text = "LOG";
-            this.LOG.UseVisualStyleBackColor = true;
             // 
             // TxtBuscar
             // 

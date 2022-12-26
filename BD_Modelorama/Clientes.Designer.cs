@@ -309,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(754, 397);
             this.ControlBox = false;
             this.Controls.Add(this.BtnTerminar);
@@ -335,6 +336,7 @@
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.LabelNombreEmpleado);
             this.Name = "Clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();

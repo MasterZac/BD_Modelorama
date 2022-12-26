@@ -222,6 +222,8 @@
             this.TxtCodigoVenta.Name = "TxtCodigoVenta";
             this.TxtCodigoVenta.Size = new System.Drawing.Size(100, 21);
             this.TxtCodigoVenta.TabIndex = 47;
+            this.TxtCodigoVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoVenta_KeyPress);
+            this.TxtCodigoVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtCodigoVenta_KeyUp);
             // 
             // label2
             // 
@@ -293,6 +295,8 @@
             this.Txtdni.Name = "Txtdni";
             this.Txtdni.Size = new System.Drawing.Size(100, 21);
             this.Txtdni.TabIndex = 49;
+            this.Txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtdni_KeyPress);
+            this.Txtdni.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txtdni_KeyUp);
             // 
             // groupBox2
             // 
@@ -396,6 +400,9 @@
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(100, 21);
             this.TxtCodigo.TabIndex = 1;
+            this.TxtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCodigo_KeyDown);
+            this.TxtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigo_KeyPress);
+            this.TxtCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtCodigo_KeyUp);
             // 
             // label4
             // 
@@ -554,10 +561,10 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage);
-            this.tabControl1.Location = new System.Drawing.Point(189, 6);
+            this.tabControl1.Location = new System.Drawing.Point(193, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(767, 499);
+            this.tabControl1.Size = new System.Drawing.Size(761, 487);
             this.tabControl1.TabIndex = 61;
             this.tabControl1.Visible = false;
             // 
@@ -570,7 +577,7 @@
             this.tabPage.Location = new System.Drawing.Point(4, 22);
             this.tabPage.Name = "tabPage";
             this.tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage.Size = new System.Drawing.Size(759, 473);
+            this.tabPage.Size = new System.Drawing.Size(753, 461);
             this.tabPage.TabIndex = 0;
             this.tabPage.Text = "Corte de caja";
             // 
@@ -708,6 +715,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(956, 505);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);

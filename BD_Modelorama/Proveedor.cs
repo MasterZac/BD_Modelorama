@@ -94,7 +94,7 @@ namespace BD_Modelorama
                 Conectar();
                 string query = "Select * From proveedor Where ID = ('" + TxtID.Text + "') and Nombre = ('" + TxtNombre.Text + "') and Direccion = ('" + TxtDireccion.Text + "')";
                 cmd = new MySqlCommand(query, cnn);
-                cmd.CommandType= CommandType.Text;
+                cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
@@ -353,6 +353,11 @@ namespace BD_Modelorama
             x.NombreTrabajador = LabelNombreEmpleado.Text;
             x.Show();
             this.Hide();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
